@@ -19,7 +19,7 @@ function connection() {
     var con = mysql.createConnection({
         host: config.host,
         user: config.user,
-        port: "3306",
+        port: config.port,
         password: config.password,
         database: "web",
     });
