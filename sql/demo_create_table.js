@@ -133,7 +133,7 @@ con.connect(function(err) {
 
   /*
   posts: organize post list to search for
-  constructed as posts are generated
+  constructed as posts are generated, erased when exercises are combined to workouts
   ----
   id
   table_name (enum for what kind of post 'messages'/'exercise'/'workout' )
