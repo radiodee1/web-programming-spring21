@@ -27,7 +27,7 @@ function connection() {
     return con;
 }
 
-
+/*
 //insert
 likes = {
     name:"likes",
@@ -46,6 +46,7 @@ post_ids = {
     columns_list: ['*'],
     mult_rows: false
 }
+*/
 
 function makeInsert(table_name, columns_list , values_list, mult_rows=false){
     
