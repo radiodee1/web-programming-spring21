@@ -26,7 +26,7 @@ console.log(x);
 
 con = sql.connection();
 
-//sql.query(con, x);
+//sql.query(con, x); // this will insert 3 rows...
 
 x = sql.makeSelect(post_ids.name, post_ids.columns_list, "", post_ids.mult_rows);
 
