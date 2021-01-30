@@ -13,23 +13,25 @@ var con = mysql.createConnection({
 });
 
 
-/* 
-profiles: basic user data
-entered in 'sign-up' form
-----
-id
-firstname (name)
-lastname (name)
-address (info)
-city (info)
-state (info)
-zip (info)
-email (info)
-username (name)
-password (password)
-*/
+
 con.connect(function(err) {
   if (err) throw err;
+
+  /* 
+  profiles: basic user data
+  entered in 'sign-up' form
+  ----
+  id
+  firstname (name)
+  lastname (name)
+  address (info)
+  city (info)
+  state (info)
+  zip (info)
+  email (info)
+  username (name)
+  password (password)
+  */
   console.log("Connected!");
   var sql = "CREATE TABLE profiles (id INT AUTO_INCREMENT PRIMARY KEY, " +
   "firstname VARCHAR(255), lastname VARCHAR(255), " + 
