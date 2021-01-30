@@ -164,10 +164,8 @@ con.connect(function(err) {
   });
 
 
-con.end((err) => {
-  // The connection is terminated gracefully
-  // Ensures all remaining queries are executed
-  // Then sends a quit packet to the MySQL server.
-});
+  con.end((err) => {
+    //end
+  });
 });
 
