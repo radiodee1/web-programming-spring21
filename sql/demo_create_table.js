@@ -130,7 +130,7 @@ con.connect(function(err) {
   });
 
   /*
-  posts: organize posts to search for
+  posts: organize post list to search for
   constructed as posts are generated
   ----
   id
@@ -151,7 +151,7 @@ con.connect(function(err) {
   });
 
   /*
-  likes: list of likes from associated frinds
+  likes: list of likes from associated friends
   connected with some kind of post
   ----
   id
