@@ -27,26 +27,6 @@ function connection() {
     return con;
 }
 
-/*
-//insert
-likes = {
-    name:"likes",
-    columns_list: ['post_id', 'from_user_id'],
-    mult_rows: true,
-    values_list: [
-        [1111, 2222],
-        [3333, 4444],
-        [8888, 9999]
-    ]
-};
-
-//select
-post_ids = {
-    name: "likes",
-    columns_list: ['*'],
-    mult_rows: false
-}
-*/
 
 function makeInsert(table_name, columns_list , values_list, mult_rows=false){
     
