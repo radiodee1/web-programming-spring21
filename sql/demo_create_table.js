@@ -32,7 +32,6 @@ con.connect(function(err) {
   username (name)
   password (password)
   */
-  console.log("Connected!");
   var sql = "CREATE TABLE profiles (id INT AUTO_INCREMENT PRIMARY KEY, " +
   "firstname VARCHAR(255), lastname VARCHAR(255), " + 
   "address VARCHAR(255), city VARCHAR(255), " + 
@@ -58,7 +57,6 @@ con.connect(function(err) {
   complete (a boolean or enumeration for whether an exercise is done)
   from_user_id (the user id of the exerciser)
   */
-  console.log("Connected!");
   var sql = "CREATE TABLE exercises (id INT AUTO_INCREMENT PRIMARY KEY, " +
   "exercise_name VARCHAR(255), repititions INT, " + 
   "unit_name VARCHAR(255), date TIMESTAMP, " + 
@@ -79,7 +77,6 @@ con.connect(function(err) {
   from_user_id (user)
   exercise_id (many of these -- link to exercises)
   */
-  console.log("Connected!");
   var sql = "CREATE TABLE workout (id INT AUTO_INCREMENT PRIMARY KEY, " +
   "date TIMESTAMP, workout_id INT, " + 
   "from_user_id INT, exercise_id INT " + 
@@ -99,7 +96,6 @@ con.connect(function(err) {
   friend_user_id (associated friend)
   date (date of association start)
   */
-  console.log("Connected!");
   var sql = "CREATE TABLE friends (id INT AUTO_INCREMENT PRIMARY KEY, " +
   "user_id INT, friend_user_id INT, " + 
   "date TIMESTAMP " + 
@@ -120,7 +116,6 @@ con.connect(function(err) {
   message (actual text of message)
   date (date message was sent) 
   */
-  console.log("Connected!");
   var sql = "CREATE TABLE messages (id INT AUTO_INCREMENT PRIMARY KEY, " +
   "from_user_id INT, to_user_id INT, " + 
   "message VARCHAR(255), date TIMESTAMP " + 
@@ -132,16 +127,15 @@ con.connect(function(err) {
   });
 
   /*
-  posts: organize post list to search for
+  posts: organize post list to search for with 3 complex joins
   constructed as posts are generated, erased when exercises are combined to workouts
   ----
   id
   table_name (enum for what kind of post 'messages'/'exercise'/'workout' )
   table_id (num copied from table id of messages/exercise/workout)
   date (date of post)
-  from_user_id (num copied from user id -and- search key)
+  from_user_id (num copied from user id -and- act as search key)
   */
-  console.log("Connected!");
   var sql = "CREATE TABLE posts (id INT AUTO_INCREMENT PRIMARY KEY, " +
   "table_name VARCHAR(255), table_id INT, " + 
   "date TIMESTAMP, from_user_id INT " + 
@@ -160,7 +154,6 @@ con.connect(function(err) {
   post_id (num copied from post id)
   from_user_id (num copied from num id)
   */
-  console.log("Connected!");
   var sql = "CREATE TABLE likes (id INT AUTO_INCREMENT PRIMARY KEY, " +
   "post_id INT, from_user_id INT " + 
   
