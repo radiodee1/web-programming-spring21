@@ -134,7 +134,7 @@ con.connect(function(err) {
   table_name (enum for what kind of post 'messages'/'exercise'/'workout' )
   table_id (num copied from table id of messages/exercise/workout)
   date (date of post)
-  from_user_id (num copied from user id -and- act as search key)
+  from_user_id (num copied from user id -and- act as one search key)
   */
   var sql = "CREATE TABLE posts (id INT AUTO_INCREMENT PRIMARY KEY, " +
   "table_name VARCHAR(255), table_id INT, " + 
