@@ -45,7 +45,7 @@ con.connect(function(err) {
 
   console.log("Connected!");
   var sql = "CREATE TABLE workout (id INT AUTO_INCREMENT PRIMARY KEY, " +
-  "date TIMESTAMP, " + 
+  "date TIMESTAMP, workout_id INT, " + 
   "from_user_id INT, exercise_id INT " + 
   
   " )";
