@@ -43,6 +43,16 @@ con.connect(function(err) {
     console.log("Table exercises created");
   });
 
+  console.log("Connected!");
+  var sql = "CREATE TABLE workout (id INT AUTO_INCREMENT PRIMARY KEY, " +
+  "date TIMESTAMP, " + 
+  "from_user_id INT, exercise_id INT " + 
+  
+  " )";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Table workout created");
+  });
 
   console.log("Connected!");
   var sql = "CREATE TABLE friends (id INT AUTO_INCREMENT PRIMARY KEY, " +
