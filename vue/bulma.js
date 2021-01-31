@@ -38,10 +38,29 @@ function doLoad() {
       
   function focusRegister() {
     visibility.register = true;
-
+    visibility.login = false;
+    visibility.newsfeed = false;
+    visibility.home = false;
   }
 
   function focusLogin() {
     visibility.login = true;
+    visibility.register = false;
+    visibility.newsfeed = false;
+    visibility.home = false;
+  }
+
+  function focusNews() {
+    visibility.login = false;
+    visibility.register = false;
+    visibility.newsfeed = true;
+    visibility.home = false;
   }
   
+  function focusReset() {
+    visibility.login = false;
+    visibility.register = false;
+    visibility.newsfeed = false;
+    visibility.home = true;
+    visibility.banner = true;
+  }
