@@ -53,13 +53,14 @@ con.connect(function(err) {
   exercise_name (something like 'push-ups')
   repititions (a number like '1' or '5')
   unit_name (a dropdown like 'reps', or 'miles', or 'km')
+  extra_name (extra info like '30lbs', '20lbs', etc.)
   date (a date timestamp)
   complete (a boolean or enumeration for whether an exercise is done)
   from_user_id (the user id of the exerciser)
   */
   var sql = "CREATE TABLE exercises (id INT AUTO_INCREMENT PRIMARY KEY, " +
   "exercise_name VARCHAR(255), repititions INT, " + 
-  "unit_name VARCHAR(255), date TIMESTAMP, " + 
+  "unit_name VARCHAR(255), extra_name VARCHAR(255), date TIMESTAMP, " + 
   "complete VARCHAR(255), from_user_id INT " + 
   
   " )";
