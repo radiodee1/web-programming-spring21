@@ -75,9 +75,11 @@
     </div>
   </nav>
 
+  <div id="visibility">
+
 <!-- hello world section -->
 
-  <section class="section">
+  <section class="section" v-if="banner">
     <div class="container">
       <h1 class="title">
         Hello World
@@ -90,20 +92,8 @@
 
   
 
-<!-- section class="section">
-  <div class="container">
-    <h1>This will be my example</h1>
-    <ul>
-      <li>Do not kill</li>
-      <li>Do not steal</li>
-      <li>No adultery</li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
-</section -->
-
-<section class="section">
+<!-- start news feed -->
+<section class="section" v-if="newsfeed">
 <div class="columns">
   <div class="column">
     First column
@@ -213,13 +203,13 @@
 </div>
 <!-- vue end -->
   </div>
-  
+</div>  
 </section>
+<!-- end news feed -->
 
-</div>
 
 <!-- start register -->
-<section class="section">
+<section class="section" v-if="register">
     <div class="columns">
     <!-- firstname -->
 
@@ -379,9 +369,60 @@
 </section>
 <!-- end register -->
 <!-- start login-->
-<div>
+<section class="section" v-if="login">
 
+  <div class="columns" >
+    <!-- username -->
+    <div class="field column">
+      <div class="control has-icons-left has-icons-right">
+        <input class="input is-medium" type="text" placeholder="Username">
+        <span class="icon is-medium is-left">
+          <i class="fas "></i>
+        </span>
+        <span class="icon is-medium is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </div>
+    </div>
+    <!-- password -->
+    <div class="field column">
+      <div class="control has-icons-left has-icons-right">
+        <input class="input is-medium" type="password" placeholder="Password">
+        <span class="icon is-medium is-left">
+          <i class="fas "></i>
+        </span>
+        <span class="icon is-medium is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="field is-grouped">
+        <p class="control">
+          <a class="button is-primary">
+            Submit
+          </a>
+        </p>
+        <p class="control">
+          <a class="button is-light">
+            Cancel
+          </a>
+        </p>
+      </div>
 </div>
+</section>
+<!-- /div -->
+
 <!-- end login -->
+<!-- start home -->
+<section class="section" v-if="home" >
+
+  Login or register!
+</section>
+<!-- end home -->
+</div>
+
 </body>
   </html>

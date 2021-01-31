@@ -16,7 +16,19 @@ function doLoad() {
             { text: 'Build something awesome' }
           ]
         }
-      })
+      });
+
+      visibility = new Vue({
+        el: '#visibility',
+        data: {
+          login: true,
+          register: true,
+          newsfeed: false,
+          home: true,
+          banner: true
+        }
+      });
+
   }
     
   $(document).ready(function() {
