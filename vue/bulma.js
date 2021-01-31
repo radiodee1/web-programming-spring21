@@ -21,8 +21,8 @@ function doLoad() {
       visibility = new Vue({
         el: '#visibility',
         data: {
-          login: true,
-          register: true,
+          login: false,
+          register: false,
           newsfeed: false,
           home: true,
           banner: true
@@ -36,5 +36,12 @@ function doLoad() {
       doLoad();
   })
       
-      //alert('hello');
+  function focusRegister() {
+    visibility.register = true;
+
+  }
+
+  function focusLogin() {
+    visibility.login = true;
+  }
   
