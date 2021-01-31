@@ -5,6 +5,9 @@
   <title>Practice Bulma Web Page</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="vue/bulma.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
@@ -163,6 +166,17 @@
   </div>
   <div class="column">
     Third column
+    <!-- vue start -->
+    <div id="app">
+        {{ message }}
+      </div>
+
+      <div id="app-4">
+        <ul>
+          <li v-for="todo in todos">
+            {{ todo.text }}
+          
+
     <div class="card">
       <div class="card-image">
         <figure class="image is-4by3">
@@ -177,7 +191,7 @@
             </figure>
           </div>
           <div class="media-content">
-            <p class="title is-4">John Smith</p>
+            <p class="title is-4">John Smith: {{ todo.text }} </p>
             <p class="subtitle is-6">@johnsmith</p>
           </div>
         </div>
@@ -191,10 +205,180 @@
         </div>
       </div>
     </div>
+</li>
+</ul>
+</div>
+<!-- vue end -->
   </div>
   
 </section>
 
 </div>
+
+<!-- start register -->
+<section class="section">
+    <div class="columns">
+    <!-- firstname -->
+
+        <div class="field column">
+
+        <div class="control has-icons-left has-icons-right">
+
+            <input class="input is-medium" type="email" placeholder="Firstnname:"> 
+          <span class="icon is-medium is-left">
+            <i class="fas "></i>
+          </span>
+          <span class="icon is-medium is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- lastname -->
+      <div class="field column">
+    
+
+        <div class="control has-icons-left has-icons-right">
+            
+
+            <input class="input is-medium" type="email" placeholder="Lastname">
+          <span class="icon is-medium is-left">
+            <i class="fas "></i>
+          </span>
+          <span class="icon is-medium is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns">
+      <!-- address -->
+      <div class="field column">
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-medium" type="email" placeholder="Address">
+          <span class="icon is-medium is-left">
+            <i class="fas "></i>
+          </span>
+          <span class="icon is-medium is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+      </div>
+      <!-- city -->
+      <div class="field column">
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-medium" type="email" placeholder="City">
+          <span class="icon is-medium is-left">
+            <i class="fas "></i>
+          </span>
+          <span class="icon is-medium is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+      </div>
+
+    </div>
+    <div class="columns" >
+      <!-- state -->
+      <div class="field column">
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-medium" type="email" placeholder="State">
+          <span class="icon is-medium is-left">
+            <i class="fas "></i>
+          </span>
+          <span class="icon is-medium is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+      </div>
+      <!-- zip -->
+      <div class="field column">
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-medium" type="email" placeholder="Zip Code">
+          <span class="icon is-medium is-left">
+            <i class="fas "></i>
+          </span>
+          <span class="icon is-medium is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+      <!-- email -->
+      <div class="field">
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-medium" type="email" placeholder="email">
+          <span class="icon is-medium is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <span class="icon is-medium is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="columns" >
+      <!-- username -->
+      <div class="field column">
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-medium" type="email" placeholder="Username">
+          <span class="icon is-medium is-left">
+            <i class="fas "></i>
+          </span>
+          <span class="icon is-medium is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+      </div>
+      <!-- password -->
+      <div class="field column">
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-medium" type="email" placeholder="Password">
+          <span class="icon is-medium is-left">
+            <i class="fas "></i>
+          </span>
+          <span class="icon is-medium is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns">
+    <div class="field column is-half ">
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-medium" type="email" placeholder="Password again">
+          <span class="icon is-medium is-left">
+            <i class="fas "></i>
+          </span>
+          <span class="icon is-medium is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+<div>
+    <div class="field is-grouped">
+        <p class="control">
+          <a class="button is-primary">
+            Submit
+          </a>
+        </p>
+        <p class="control">
+          <a class="button is-light">
+            Cancel
+          </a>
+        </p>
+      </div>
+</div>
+</section>
+<!-- end register -->
+<!-- start login-->
+<div>
+
+</div>
+<!-- end login -->
 </body>
   </html>
