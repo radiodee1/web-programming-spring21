@@ -8,7 +8,7 @@ tree = {
       {
         show_message: true,
         show_exercise: true,
-        show_workout: true,
+        show_workout: false,
         
         picture_large: null,
         picture_small: null,

@@ -12,8 +12,8 @@ function doLoad() {
       }
     });
 
-    var listing = new Vue({
-        el: '#app-4',
+      listing = new Vue({
+        el: '#listing',
         data: data
       });
 
@@ -27,6 +27,8 @@ function doLoad() {
           banner: true
         }
       });
+
+      listing.feed[0].show_workout = true;
 
   }
     
@@ -63,3 +65,4 @@ function doLoad() {
     visibility.home = true;
     visibility.banner = true;
   }
+

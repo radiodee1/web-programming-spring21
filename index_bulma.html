@@ -143,10 +143,10 @@
         {{ message }}
       </div>
 
-      <div id="app-4">
+      <div id="listing">
         <ul>
-          <li v-for="article in feed">
-            {{ article.message }}
+          <li v-for="(article, index) in feed">
+            {{ article.message }}  {{ index }}
           
 
     <div class="card">
@@ -167,19 +167,36 @@
             <p class="subtitle is-6">@johnsmith</p>
           </div>
         </div>
-    
-        <div class="content">
+        <!-- three contents -->
+        <div class="content" v-if="article.show_exercise" >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Phasellus nec iaculis mauris. <a>@bulmaio</a>.
           <a href="#">#css</a> <a href="#">#responsive</a>
           <br>
           <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
         </div>
+
+        <div class="content" v-if="article.show_message">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+          <a href="#">#css</a> <a href="#">#responsive</a>
+          <br>
+          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        </div>
+
+        <div class="content" v-if="article.show_workout">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+          <a href="#">#css</a> <a href="#">#responsive</a>
+          <br>
+          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        </div>
+        <!-- end three contents -->
       </div>
     </div>
-</li>
-</ul>
-</div>
+          </li>
+        </ul>
+      </div>
 <!-- vue end -->
   </div>
 </div>  
@@ -404,4 +421,6 @@
 </div>
 
 </body>
+<!-- script src="vue/bulma.js"></script -->
+
   </html>
