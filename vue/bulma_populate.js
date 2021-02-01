@@ -6,9 +6,9 @@ tree = {
     feed: 
     [ // list of feed items...
       {
-        show_message: false,
-        show_exercise: false,
-        show_workout: false,
+        show_message: true,
+        show_exercise: true,
+        show_workout: true,
         
         picture_large: null,
         picture_small: null,
