@@ -1,3 +1,8 @@
+
+//const data = require("./bulma_populate.js");
+
+console.log(data);
+
 function doLoad() {
 
     var app = new Vue({
@@ -7,15 +12,9 @@ function doLoad() {
       }
     });
 
-    var app4 = new Vue({
+    var listing = new Vue({
         el: '#app-4',
-        data: {
-          todos: [
-            { text: 'Learn JavaScript' },
-            { text: 'Learn Vue' },
-            { text: 'Build something awesome' }
-          ]
-        }
+        data: data
       });
 
       visibility = new Vue({

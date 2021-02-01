@@ -31,13 +31,14 @@ con.connect(function(err) {
   email (info)
   username (name)
   password (password)
+  cookie (for saved logins)
   */
   var sql = "CREATE TABLE profiles (id INT AUTO_INCREMENT PRIMARY KEY, " +
   "firstname VARCHAR(255), lastname VARCHAR(255), " + 
   "address VARCHAR(255), city VARCHAR(255), " + 
   "state VARCHAR(255), zip VARCHAR(255), " + 
   "email VARCHAR(255), username VARCHAR(255), " + 
-  "password VARCHAR(255)" + 
+  "password VARCHAR(255), cookie VARCHAR(255) " + 
   // ", picture BLOB " + 
   " )";
   con.query(sql, function (err, result) {
