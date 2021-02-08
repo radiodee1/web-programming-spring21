@@ -8,16 +8,50 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="controlThis">
+    <div class="card" >
+        <header class="card-header">
+          <p class="card-header-title">
+            Card header
+          </p>
+          <button class="card-header-icon" aria-label="more options">
+            <span class="icon">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+        </header>
+      </div>
+
+    <div id="app">
+        {{ person1.name }}
+      </div>
+    </div>
 </body class="card">
 <div class="card">Hello</div>
- 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script -->
 
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <script>
-        $(function(){
-            $(".card").css("backgroundColor","green")
+        let name = "Dave Liebman";
+        const age = '52';
+        const person1 = {
+            name:"DL",
+            age: 29,
+            address: {
+                street: "123 road st.",
+                state: "NY",
+                zip: "12345"
+            }
+        };
+        console.log(`Hi ${ name + ' ' + (person1.age + 1) }! You are a wonderful programmer.`);
+        console.log(person1);
+        var controlThis = new Vue({
+            el: '#controlThis',
+            data: {
+                person1
+            }
         })
+
     </script>
 </html>
