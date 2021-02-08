@@ -2,7 +2,7 @@
 
 ## mysql-login.json
 
-Make your own one of these! Put it in your project root.
+Make your own one of these! Put it in your project root. Use it with the mysql scripts in the 'sql' folder.
 
 ```
 {
