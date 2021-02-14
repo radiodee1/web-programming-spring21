@@ -15,6 +15,12 @@ Make your own one of these! Put it in your project root. Use it with the mysql s
 
 ## vue cli
 
+First:
+
+`sudo npm install -g @vue/cli`
+
+Then:
+
 `/usr/local/lib/node_modules/@vue/cli/bin/` Vue cli may be found here...
 
 Example:
