@@ -1,8 +1,8 @@
 <template>
-<div id="visibility">
+<div id="app">
     
 
-  <div > <!-- id="visibility" -->
+  <div > 
     <bannercomponent></bannercomponent>
     <feedcontainer></feedcontainer> 
     </div>
@@ -19,7 +19,8 @@ require("./controls.js");
 
 import {  doLoad, visibility } from './v.js';
 
-doLoad();
+//doLoad();
+
 
 export default {
   name:"app",
@@ -44,6 +45,9 @@ export default {
 
 
 //let classOption = visibility.classOption;
+
+console.log(visibility);
+console.log("here... App.vue");
 
 </script>
 

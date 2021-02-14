@@ -1,4 +1,5 @@
 import Vue from "vue";
+import app from "./App.vue";
 
 require("./populate.js");
 import { makeInvocation, makeFeedComponent } from './populate.js';
@@ -9,7 +10,8 @@ export let visibility = null;
 export function doLoad() {
     
       visibility = new Vue({
-        el: '#visibility',
+        el: '#app',
+        render: h => h(app),
         data: {
           login: false,
           register: false,
@@ -30,8 +32,8 @@ export function doLoad() {
         }
       });
 
-      makeFeedComponent();
-      makeInvocation();
+      //makeFeedComponent();
+      //makeInvocation();
       
       
   }
