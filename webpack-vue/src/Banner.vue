@@ -1,5 +1,5 @@
 <template>
-  <div id="bannercomponent">
+  <div id="bannercomponent" :newsfeed="newsfeed" :banner="banner">
     <nav class="navbar gray" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="">
@@ -51,19 +51,26 @@
 <script>
 //import './../node_modules/bulma/css/bulma.css';
 //import '@/assets/bulma.css';
+require("./v.js");
+require("./populate.js");
+require("./controls.js");
 
+import {  doLoad, visibility, classOption, focusFormExercise, focusFormMessage, focusFormWorkout } from './v.js';
 
 export default {
-  id: "#bannercomponent",
+  //id: "#bannercomponent",
   name: "bannercomponent",
   data() {
     return {};
   },
-  props: {
+  props: ["banner", "newsfeed"] ,/* {
     banner : Boolean, 
     newsfeed: Boolean , 
-    classOption: Function
+    //classOption: Function
   }
+  */
 
 };
+
+
 </script>

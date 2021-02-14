@@ -1,50 +1,64 @@
 <template>
-<div id="app">
+  <div id="app"  :newsfeed="newsfeed" :banner="banner" >
     
-
-  <div > 
     <bannercomponent></bannercomponent>
     <feedcontainer></feedcontainer> 
-    </div>
+    <register></register>
+    <home></home>
+    
   </div>
 </template>
 
 <script>
 import bannercomponent from "./Banner.vue";
 import feedcontainer from "./FeedContainer.vue";
+import register from "./Register.vue";
+import home from "./Home.vue";
 
 require("./v.js");
 require("./populate.js");
 require("./controls.js");
 
-import {  doLoad, visibility } from './v.js';
-
+import { visibility } from './v.js';
+//import {visibility} from "./main.js";
 //doLoad();
 
 
+
+
 export default {
-  name:"app",
+  name:"appx",
   data() {
     
     return {
       message: 'Hello World!',
-      l: [0,1,2,3]
+      l: [0,1,2,3],
+      "newsfeed" : true,
+      'banner': true
     };
   },
   components: {
     "bannercomponent" : bannercomponent,
-    "feedcontainer" : feedcontainer
+    "feedcontainer" : feedcontainer,
+    "register": register,
+    "home": home
   },
-  props: {
-    banner : Boolean, 
-    newsfeed: Boolean , 
-    //classOption: Function
-  },
+  //props: ['banner', 'newsfeed'], 
+  
+  
+  methods: {
+          classOption: function (i) {
+            //console.log(i);
+            const x = Boolean(i);
+            if (x === true) return 'visi';
+            else return 'invis';
+          },
+        }
+  
   
 };//.$mount("#app");
 
 
-//let classOption = visibility.classOption;
 
 console.log(visibility);
 console.log("here... App.vue");

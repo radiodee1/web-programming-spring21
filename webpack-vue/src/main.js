@@ -1,4 +1,4 @@
-//import Vue from "vue";
+import Vue from "vue";
 import App from "./App.vue";
 import './../node_modules/bulma/css/bulma.css';
 import '@/assets/bulma.css';
@@ -8,12 +8,12 @@ require('./controls.js');
 
 require("./v.js");
 
-import { visibility, doLoad } from "./v.js";
+import { visibility , doLoad} from "./v.js";
 
 
 //Vue.config.productionTip = false;
-
 /*
+
 new Vue({
   el: "#app",
 
@@ -35,8 +35,9 @@ new Vue({
   }
   
 });//.$mount("#app");
-*/
 
+*/
 doLoad();
 
 console.log(visibility);
+console.log("main.js");
