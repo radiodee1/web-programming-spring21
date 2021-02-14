@@ -1,28 +1,52 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div id="visibility">
+    
+
+  <div > <!-- id="visibility" -->
+    <bannercomponent></bannercomponent>
+    <feedcontainer></feedcontainer> 
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import bannercomponent from "./Banner.vue";
+import feedcontainer from "./FeedContainer.vue";
+
+require("./v.js");
+require("./populate.js");
+require("./controls.js");
+
+import {  doLoad, visibility } from './v.js';
+
+doLoad();
 
 export default {
-  name: 'App',
+  name:"app",
+  data() {
+    
+    return {
+      message: 'Hello World!',
+      l: [0,1,2,3]
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    "bannercomponent" : bannercomponent,
+    "feedcontainer" : feedcontainer
+  },
+  props: {
+    banner : Boolean, 
+    newsfeed: Boolean , 
+    //classOption: Function
+  },
+  
+};//.$mount("#app");
+
+
+//let classOption = visibility.classOption;
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
