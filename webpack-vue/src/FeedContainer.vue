@@ -1,5 +1,5 @@
 <template>
-<div id="feedcomponent">
+<div id="feedcontainer">
   <!-- start news feed -->
   <section class="section" v-bind:class="classOption(newsfeed)">
     <div class="columns">
@@ -43,7 +43,7 @@ import {  doLoad, visibility } from './v.js';
 
 export default {
   name: "feedcontainer",
-  //el:"#feedcomponent",
+  
   data() {
     return {};
   },
