@@ -51,11 +51,11 @@
 <script>
 //import './../node_modules/bulma/css/bulma.css';
 //import '@/assets/bulma.css';
-require("./v.js");
-require("./populate.js");
-require("./controls.js");
+require("./js/v.js");
+require("./js/populate.js");
+require("./js/controls.js");
 
-import {  doLoad, visibility, classOption, focusFormExercise, focusFormMessage, focusFormWorkout } from './v.js';
+import {  doLoad, visibility, classOption, focusFormExercise, focusFormMessage, focusFormWorkout } from './js/v.js';
 
 export default {
   //id: "#bannercomponent",

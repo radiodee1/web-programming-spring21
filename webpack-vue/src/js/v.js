@@ -1,5 +1,5 @@
 import Vue from "vue";
-import app from "./App.vue";
+import app from "../App.vue";
 
 require("./populate.js");
 import { makeInvocation, makeFeedComponent } from './populate.js';

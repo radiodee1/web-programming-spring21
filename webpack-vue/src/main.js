@@ -3,12 +3,11 @@ import App from "./App.vue";
 import './../node_modules/bulma/css/bulma.css';
 import '@/assets/bulma.css';
 
-require("./populate.js");
-require('./controls.js');
+require("./js/populate.js");
+require('./js/controls.js');
+require("./js/v.js");
 
-require("./v.js");
-
-import { visibility , doLoad} from "./v.js";
+import { visibility , doLoad} from "./js/v.js";
 
 
 //Vue.config.productionTip = false;

@@ -15,11 +15,11 @@ import feedcontainer from "./FeedContainer.vue";
 import register from "./Register.vue";
 import home from "./Home.vue";
 
-require("./v.js");
-require("./populate.js");
-require("./controls.js");
+require("./js/v.js");
+require("./js/populate.js");
+require("./js/controls.js");
 
-import { visibility } from './v.js';
+import { visibility } from './js/v.js';
 //import {visibility} from "./main.js";
 //doLoad();
 

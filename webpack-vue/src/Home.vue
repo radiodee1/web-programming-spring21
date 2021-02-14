@@ -13,11 +13,11 @@
 </template>
 
 <script>
-require("./v.js");
-require("./populate.js");
-require("./controls.js");
+require("./js/v.js");
+require("./js/populate.js");
+require("./js/controls.js");
 
-import { doLoad, visibility, classOption, focusRegister } from "./v.js";
+import { doLoad, visibility, classOption, focusRegister } from "./js/v.js";
 
 export default {
   name: "home",
