@@ -12,6 +12,7 @@
       :focusRegister="focusRegister"
       :focusNews="focusNews"
       :focusReset="focusReset"
+      :focusLogin="focusLogin"
     ></bannercomponent>
     <feedcontainer
       :newsfeed="newsfeed"
@@ -25,6 +26,7 @@
       :focusRegister="focusRegister"
       :focusNews="focusNews"
       :focusReset="focusReset"
+      :focusLogin="focusLogin"
 
     ></feedcontainer>
     <register
@@ -39,8 +41,24 @@
       :focusRegister="focusRegister"
       :focusNews="focusNews"
       :focusReset="focusReset"
+      :focusLogin="focusLogin"
 
     ></register>
+    <login
+      :newsfeed="newsfeed"
+      :banner="banner"
+      :login="login"
+      :register="register"
+      :home="home"
+      :form_message="form_message"
+      :form_exercise="form_exercise" 
+      :form_workout="form_workout"
+      :focusRegister="focusRegister"
+      :focusNews="focusNews"
+      :focusReset="focusReset"
+      :focusLogin="focusLogin"
+
+    ></login>
     <home
       :newsfeed="newsfeed"
       :banner="banner"
@@ -53,6 +71,7 @@
       :focusRegister="focusRegister"
       :focusNews="focusNews"
       :focusReset="focusReset"
+      :focusLogin="focusLogin"
 
     ></home>
   </div>
@@ -66,6 +85,7 @@ import bannercomponent from "./components/Banner.vue";
 import feedcontainer from "./components/FeedContainer.vue";
 import register from "./components/Register.vue";
 import home from "./components/Home.vue";
+import login from "./components/Login.vue";
 
 require("./js/v.js");
 require("./js/populate.js");
@@ -96,6 +116,7 @@ export default {
     feedcontainer: feedcontainer,
     register: register,
     home: home,
+    login: login
   },
   //props: ['focusRegister'],
   mounted() {
@@ -131,9 +152,13 @@ export default {
     focusReset: function () {
       this.$root.focusReset();
       this.copyVals();
+    },
+    focusLogin: function () {
+      this.$root.focusLogin();
+      this.copyVals();
     }
   },
-}; //.$mount("#app");
+}; 
 
 //console.log(visibility);
 //console.log("here... App.vue");

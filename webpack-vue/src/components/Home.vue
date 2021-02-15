@@ -5,7 +5,7 @@
       <a class="button is-primary" @click="focusRegister();">
         <strong>Sign up</strong>
       </a>
-      <a class="button is-light" onclick="focusLogin()"> Log in </a>
+      <a class="button is-light" @click="focusLogin()"> Log in </a>
     </div>
     Login or register!
   </section>
@@ -26,7 +26,8 @@ export default {
   },
   props: {
     home: Boolean,
-    focusRegister: Function
+    focusRegister: Function,
+    focusLogin: Function
   },
   methods: {
     classOption: function (i) {
