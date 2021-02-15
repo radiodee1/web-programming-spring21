@@ -1,5 +1,5 @@
 <template>
-  <div id="bannercomponent" :newsfeed="newsfeed" :banner="banner">
+  <div id="bannercomponent" >
     <nav class="navbar gray" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="">
@@ -51,6 +51,9 @@
 <script>
 //import './../node_modules/bulma/css/bulma.css';
 //import '@/assets/bulma.css';
+//import '../../node_modules/bulma/css/bulma.css';
+//import '../assets/bulma.css';
+
 require("../js/v.js");
 require("../js/populate.js");
 require("../js/controls.js");

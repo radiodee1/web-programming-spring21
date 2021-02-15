@@ -1,13 +1,13 @@
 import Vue from "vue";
-import App from "./App.vue";
+//import App from "./App.vue";
 import './../node_modules/bulma/css/bulma.css';
 import '@/assets/bulma.css';
 
-require("./js/populate.js");
-require('./js/controls.js');
+//require("./js/populate.js");
+//require('./js/controls.js');
 require("./js/v.js");
 
-import { visibility , doLoad} from "./js/v.js";
+import { doLoad } from "./js/v.js";
 
 
 //Vue.config.productionTip = false;
@@ -38,5 +38,5 @@ new Vue({
 */
 doLoad();
 
-console.log(visibility);
-console.log("main.js");
+//console.log(visibility);
+//console.log("main.js");

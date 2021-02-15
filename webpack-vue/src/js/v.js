@@ -1,5 +1,5 @@
 import Vue from "vue";
-import app from "../App.vue";
+import appx from "../App.vue";
 
 require("./populate.js");
 import { makeInvocation, makeFeedComponent } from './populate.js';
@@ -11,7 +11,7 @@ export function doLoad() {
 
   let visibility = new Vue({
     el: '#app',
-    render: h => h(app),
+    render: h => h(appx),
     data() {
       return {
         login: false,
@@ -24,6 +24,10 @@ export function doLoad() {
         form_workout: false
       };
     },
+    mounted() {
+      console.log("mounted");
+      console.log(this);
+    },
     methods: {
       classOption: function (i) {
         //console.log(i);
@@ -31,6 +35,86 @@ export function doLoad() {
         if (x === true) return 'visi';
         else return 'invis';
       },
+
+
+        focusRegister: function() {
+        register = true;
+        login = false;
+        newsfeed = false;
+        home = false;
+        form_exercise = false;
+        form_message = false;
+        form_workout = false;
+      },
+      
+        focusLogin: function() {
+        login = true;
+        register = false;
+        newsfeed = false;
+        home = false;
+        form_exercise = false;
+        form_message = false;
+        form_workout = false;
+      },
+      
+        focusNews: function() {
+      
+        login = false;
+        register = false;
+        newsfeed = true;
+        home = false;
+        form_exercise = false;
+        form_message = false;
+        form_workout = false;
+      
+      
+      },
+      
+        focusReset: function() {
+        login = false;
+        register = false;
+        newsfeed = false;
+        home = true;
+        banner = true;
+        form_exercise = false;
+        form_message = false;
+        form_workout = false;
+      },
+      
+        focusFormExercise: function() {
+        login = false;
+        register = false;
+        newsfeed = false;
+        home = false;
+        banner = true;
+        form_exercise = true;
+        form_message = false;
+        form_workout = false;
+      },
+      
+        focusFormMessage: function() {
+        login = false;
+        register = false;
+        newsfeed = false;
+        home = false;
+        banner = true;
+        form_exercise = false;
+        form_message = true;
+        form_workout = false;
+      },
+      
+        focusFormWorkout: function() {
+        login = false;
+        register = false;
+        newsfeed = true;
+        home = false;
+        banner = true;
+        form_exercise = false;
+        form_message = false;
+        form_workout = true;
+      }
+
+
     }
   });
 
@@ -51,7 +135,7 @@ export function classOption(i) {
   else return 'invis';
 }
 
-export function focusRegister() {
+ function focusRegister() {
   visibility.register = true;
   visibility.login = false;
   visibility.newsfeed = false;
@@ -61,7 +145,7 @@ export function focusRegister() {
   visibility.form_workout = false;
 }
 
-export function focusLogin() {
+ function focusLogin() {
   visibility.login = true;
   visibility.register = false;
   visibility.newsfeed = false;
@@ -71,7 +155,7 @@ export function focusLogin() {
   visibility.form_workout = false;
 }
 
-export function focusNews() {
+ export function focusNews() {
 
   visibility.login = false;
   visibility.register = false;
@@ -84,7 +168,7 @@ export function focusNews() {
 
 }
 
-export function focusReset() {
+ function focusReset() {
   visibility.login = false;
   visibility.register = false;
   visibility.newsfeed = false;
@@ -106,7 +190,7 @@ export function focusFormExercise() {
   visibility.form_workout = false;
 }
 
-export function focusFormMessage() {
+ function focusFormMessage() {
   visibility.login = false;
   visibility.register = false;
   visibility.newsfeed = false;
@@ -117,7 +201,7 @@ export function focusFormMessage() {
   visibility.form_workout = false;
 }
 
-export function focusFormWorkout() {
+ export function focusFormWorkout() {
   visibility.login = false;
   visibility.register = false;
   visibility.newsfeed = true;

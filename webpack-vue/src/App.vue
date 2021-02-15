@@ -1,7 +1,7 @@
 <template>
-  <div id="appx"  :newsfeed="newsfeed" :banner="banner" >
+  <div id="appx"   >
     
-    <bannercomponent></bannercomponent>
+    <bannercomponent :newsfeed="newsfeed" :banner="banner" ></bannercomponent>
     <feedcontainer></feedcontainer> 
     <register></register>
     <home></home>
@@ -10,6 +10,9 @@
 </template>
 
 <script>
+import './../node_modules/bulma/css/bulma.css';
+import '@/assets/bulma.css';
+
 import bannercomponent from "./components/Banner.vue";
 import feedcontainer from "./components/FeedContainer.vue";
 import register from "./components/Register.vue";
@@ -19,7 +22,7 @@ require("./js/v.js");
 require("./js/populate.js");
 require("./js/controls.js");
 
-import { visibility } from './js/v.js';
+//import { visibility } from './js/v.js';
 //import {visibility} from "./main.js";
 //doLoad();
 
@@ -27,7 +30,7 @@ import { visibility } from './js/v.js';
 
 
 export default {
-  name:"app",
+  name:"appx",
   data() {
     
     return {
@@ -60,8 +63,8 @@ export default {
 
 
 
-console.log(visibility);
-console.log("here... App.vue");
+//console.log(visibility);
+//console.log("here... App.vue");
 
 </script>
 
