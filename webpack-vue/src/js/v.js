@@ -38,80 +38,80 @@ export function doLoad() {
 
 
       focusRegister: function () {
-        register = true;
-        login = false;
-        newsfeed = false;
-        home = false;
-        form_exercise = false;
-        form_message = false;
-        form_workout = false;
+        this.register = true;
+        this.login = false;
+        this.newsfeed = false;
+        this.home = false;
+        this.form_exercise = false;
+        this.form_message = false;
+        this.form_workout = false;
       },
 
       focusLogin: function () {
-        login = true;
-        register = false;
-        newsfeed = false;
-        home = false;
-        form_exercise = false;
-        form_message = false;
-        form_workout = false;
+        this.login = true;
+        this.register = false;
+        this.newsfeed = false;
+        this.home = false;
+        this.form_exercise = false;
+        this.form_message = false;
+        this.form_workout = false;
       },
 
       focusNews: function () {
 
-        login = false;
-        register = false;
-        newsfeed = true;
-        home = false;
-        form_exercise = false;
-        form_message = false;
-        form_workout = false;
+        this.login = false;
+        this.register = false;
+        this.newsfeed = true;
+        this.home = false;
+        this.form_exercise = false;
+        this.form_message = false;
+        this.form_workout = false;
 
 
       },
 
       focusReset: function () {
-        login = false;
-        register = false;
-        newsfeed = false;
-        home = true;
-        banner = true;
-        form_exercise = false;
-        form_message = false;
-        form_workout = false;
+        this.login = false;
+        this.register = false;
+        this.newsfeed = false;
+        this.home = true;
+        this.banner = true;
+        this.form_exercise = false;
+        this.form_message = false;
+        this.form_workout = false;
       },
 
       focusFormExercise: function () {
-        login = false;
-        register = false;
-        newsfeed = false;
-        home = false;
-        banner = true;
-        form_exercise = true;
-        form_message = false;
-        form_workout = false;
+        this.login = false;
+        this.register = false;
+        this.newsfeed = false;
+        this.home = false;
+        this.banner = true;
+        this.form_exercise = true;
+        this.form_message = false;
+        this.form_workout = false;
       },
 
       focusFormMessage: function () {
-        login = false;
-        register = false;
-        newsfeed = false;
-        home = false;
-        banner = true;
-        form_exercise = false;
-        form_message = true;
-        form_workout = false;
+        this.login = false;
+        this.register = false;
+        this.newsfeed = false;
+        this.home = false;
+        this.banner = true;
+        this.form_exercise = false;
+        this.form_message = true;
+        this.form_workout = false;
       },
 
       focusFormWorkout: function () {
-        login = false;
-        register = false;
-        newsfeed = true;
-        home = false;
-        banner = true;
-        form_exercise = false;
-        form_message = false;
-        form_workout = true;
+        this.login = false;
+        this.register = false;
+        this.newsfeed = true;
+        this.home = false;
+        this.banner = true;
+        this.form_exercise = false;
+        this.form_message = false;
+        this.form_workout = true;
       }
 
 

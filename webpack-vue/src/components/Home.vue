@@ -2,7 +2,7 @@
   <!-- start home -->
   <section class="section gray" v-if="home">
     <div class="buttons">
-      <a class="button is-primary" onclick="focusRegister();">
+      <a class="button is-primary" @click="focusRegister();">
         <strong>Sign up</strong>
       </a>
       <a class="button is-light" onclick="focusLogin()"> Log in </a>
@@ -17,7 +17,7 @@ require("../js/v.js");
 require("../js/populate.js");
 require("../js/controls.js");
 
-import { doLoad, visibility, classOption, focusRegister } from "../js/v.js";
+import { doLoad, visibility, classOption } from "../js/v.js";
 
 export default {
   name: "home",
@@ -26,6 +26,7 @@ export default {
   },
   props: {
     home: Boolean,
+    focusRegister: Function
   },
   methods: {
     classOption: function (i) {

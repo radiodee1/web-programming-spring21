@@ -9,6 +9,9 @@
       :form_message="form_message"
       :form_exercise="form_exercise" 
       :form_workout="form_workout"
+      :focusRegister="focusRegister"
+      :focusNews="focusNews"
+      :focusReset="focusReset"
     ></bannercomponent>
     <feedcontainer
       :newsfeed="newsfeed"
@@ -19,6 +22,10 @@
       :form_message="form_message"
       :form_exercise="form_exercise" 
       :form_workout="form_workout"
+      :focusRegister="focusRegister"
+      :focusNews="focusNews"
+      :focusReset="focusReset"
+
     ></feedcontainer>
     <register
       :newsfeed="newsfeed"
@@ -29,6 +36,10 @@
       :form_message="form_message"
       :form_exercise="form_exercise" 
       :form_workout="form_workout"
+      :focusRegister="focusRegister"
+      :focusNews="focusNews"
+      :focusReset="focusReset"
+
     ></register>
     <home
       :newsfeed="newsfeed"
@@ -39,6 +50,10 @@
       :form_message="form_message"
       :form_exercise="form_exercise" 
       :form_workout="form_workout"
+      :focusRegister="focusRegister"
+      :focusNews="focusNews"
+      :focusReset="focusReset"
+
     ></home>
   </div>
 </template>
@@ -64,9 +79,9 @@ export default {
   name: "appx",
   data() {
     return {
-      message: "Hello World!",
-      l: [0, 1, 2, 3],
-      login: false,
+      //message: "Hello World!",
+      //l: [0, 1, 2, 3],
+      login: this.$root.login,
       register: this.$root.register,
       home: this.$root.home,
       form_message: this.$root.form_message,
@@ -82,7 +97,7 @@ export default {
     register: register,
     home: home,
   },
-  //props: ['banner', 'newsfeed'],
+  //props: ['focusRegister'],
   mounted() {
     console.log("appx");
     console.log(visibility);
@@ -95,6 +110,28 @@ export default {
       if (x === true) return "visi";
       else return "invis";
     },
+    copyVals: function() {
+      this.login = this.$root.login;
+      this.register = this.$root.register;
+      this.home = this.$root.home;
+      this.form_message = this.$root.form_message;
+      this.form_exercise = this.$root.form_exercise;
+      this.form_workout = this.$root.form_workout;
+      this.newsfeed = this.$root.newsfeed;
+      this.banner = this.$root.banner;
+    },
+    focusRegister : function () {
+      this.$root.focusRegister();
+      this.copyVals();
+    },
+    focusNews: function () {
+      this.$root.focusNews();
+      this.copyVals()
+    },
+    focusReset: function () {
+      this.$root.focusReset();
+      this.copyVals();
+    }
   },
 }; //.$mount("#app");
 
