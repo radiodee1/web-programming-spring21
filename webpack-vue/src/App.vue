@@ -13,6 +13,9 @@
       :focusNews="focusNews"
       :focusReset="focusReset"
       :focusLogin="focusLogin"
+      :focusFormMessage="focusFormMessage"
+      :useFormSubmitMessage="useFormSubmitMessage"
+
     ></bannercomponent>
     <feedcontainer
       :newsfeed="newsfeed"
@@ -27,6 +30,8 @@
       :focusNews="focusNews"
       :focusReset="focusReset"
       :focusLogin="focusLogin"
+      :focusFormMessage="focusFormMessage"
+      :useFormSubmitMessage="useFormSubmitMessage"
 
     ></feedcontainer>
     <register
@@ -42,6 +47,8 @@
       :focusNews="focusNews"
       :focusReset="focusReset"
       :focusLogin="focusLogin"
+      :focusFormMessage="focusFormMessage"
+      :useFormSubmitMessage="useFormSubmitMessage"
 
     ></register>
     <login
@@ -57,6 +64,8 @@
       :focusNews="focusNews"
       :focusReset="focusReset"
       :focusLogin="focusLogin"
+      :focusFormMessage="focusFormMessage"
+      :useFormSubmitMessage="useFormSubmitMessage"
 
     ></login>
     <home
@@ -72,8 +81,27 @@
       :focusNews="focusNews"
       :focusReset="focusReset"
       :focusLogin="focusLogin"
+      :focusFormMessage="focusFormMessage"
+      :useFormSubmitMessage="useFormSubmitMessage"
 
     ></home>
+    <message
+      :newsfeed="newsfeed"
+      :banner="banner"
+      :login="login"
+      :register="register"
+      :home="home"
+      :form_message="form_message"
+      :form_exercise="form_exercise" 
+      :form_workout="form_workout"
+      :focusRegister="focusRegister"
+      :focusNews="focusNews"
+      :focusReset="focusReset"
+      :focusLogin="focusLogin"
+      :focusFormMessage="focusFormMessage"
+      :useFormSubmitMessage="useFormSubmitMessage"
+
+    ></message>
   </div>
 </template>
 
@@ -86,6 +114,7 @@ import feedcontainer from "./components/FeedContainer.vue";
 import register from "./components/Register.vue";
 import home from "./components/Home.vue";
 import login from "./components/Login.vue";
+import message from "./components/Message.vue";
 
 require("./js/v.js");
 require("./js/populate.js");
@@ -116,7 +145,8 @@ export default {
     feedcontainer: feedcontainer,
     register: register,
     home: home,
-    login: login
+    login: login,
+    message: message
   },
   //props: ['focusRegister'],
   mounted() {
@@ -155,6 +185,14 @@ export default {
     },
     focusLogin: function () {
       this.$root.focusLogin();
+      this.copyVals();
+    },
+    focusFormMessage: function () {
+      this.$root.focusFormMessage();
+      this.copyVals();
+    },
+    useFormSubmitMessage: function () {
+      this.$root.useFormSubmitMessage();
       this.copyVals();
     }
   },

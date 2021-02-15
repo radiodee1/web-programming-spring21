@@ -26,11 +26,11 @@
         v-if="newsfeed"
       >
         <div class="navbar-start">
-          <a class="navbar-item" onclick="focusFormExercise()"> Exercise </a>
+          <a class="navbar-item" @click="focusFormExercise()"> Exercise </a>
 
-          <a class="navbar-item" onclick="testInsertWorkout()"> Workout </a>
+          <a class="navbar-item" @click="testInsertWorkout()"> Workout </a>
 
-          <a class="navbar-item" onclick="focusFormMessage()"> Message </a>
+          <a class="navbar-item" @click="focusFormMessage()"> Message </a>
         </div>
 
         <div class="navbar-end"></div>
@@ -66,7 +66,7 @@ export default {
   data() {
     return {};
   },
-  props: ["banner", "newsfeed"] ,
+  props: ["banner", "newsfeed", "focusFormMessage"] ,
 
 };
 

@@ -54,7 +54,7 @@ function formChooseDeet(i) {
 
 }
 
-function formSubmitMessage() {
+export function formSubmitMessage() {
   const msg_orig = document.getElementById("message_txt");
   //console.log(msg.value);
   const msg = msg_orig.value;
@@ -75,7 +75,7 @@ function formSubmitMessage() {
   obj.picture_large = pic;
   obj.date_now = d;
 
-  //console.log(obj.length + " len");
+  console.log(obj.length + " len");
 
   const b = setMessage(obj, msg);
 
