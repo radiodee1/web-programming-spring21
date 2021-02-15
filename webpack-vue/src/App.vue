@@ -1,5 +1,5 @@
 <template>
-  <div id="app"  :newsfeed="newsfeed" :banner="banner" >
+  <div id="appx"  :newsfeed="newsfeed" :banner="banner" >
     
     <bannercomponent></bannercomponent>
     <feedcontainer></feedcontainer> 
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import bannercomponent from "./Banner.vue";
-import feedcontainer from "./FeedContainer.vue";
-import register from "./Register.vue";
-import home from "./Home.vue";
+import bannercomponent from "./components/Banner.vue";
+import feedcontainer from "./components/FeedContainer.vue";
+import register from "./components/Register.vue";
+import home from "./components/Home.vue";
 
 require("./js/v.js");
 require("./js/populate.js");
@@ -27,7 +27,7 @@ import { visibility } from './js/v.js';
 
 
 export default {
-  name:"appx",
+  name:"app",
   data() {
     
     return {
