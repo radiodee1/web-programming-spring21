@@ -31,7 +31,7 @@
     </div>
   </section>
   <!-- end news feed -->
-  Hello World ??
+  
   </div>
 </template>
 

@@ -1,9 +1,45 @@
 <template>
   <div id="appx">
-    <bannercomponent :newsfeed="newsfeed" :banner="banner"></bannercomponent>
-    <feedcontainer></feedcontainer>
-    <register></register>
-    <home></home>
+    <bannercomponent
+      :newsfeed="newsfeed"
+      :banner="banner"
+      :login="login"
+      :register="register"
+      :home="home"
+      :form_message="form_message"
+      :form_exercise="form_exercise" 
+      :form_workout="form_workout"
+    ></bannercomponent>
+    <feedcontainer
+      :newsfeed="newsfeed"
+      :banner="banner"
+      :login="login"
+      :register="register"
+      :home="home"
+      :form_message="form_message"
+      :form_exercise="form_exercise" 
+      :form_workout="form_workout"
+    ></feedcontainer>
+    <register
+      :newsfeed="newsfeed"
+      :banner="banner"
+      :login="login"
+      :register="register"
+      :home="home"
+      :form_message="form_message"
+      :form_exercise="form_exercise" 
+      :form_workout="form_workout"
+    ></register>
+    <home
+      :newsfeed="newsfeed"
+      :banner="banner"
+      :login="login"
+      :register="register"
+      :home="home"
+      :form_message="form_message"
+      :form_exercise="form_exercise" 
+      :form_workout="form_workout"
+    ></home>
   </div>
 </template>
 
