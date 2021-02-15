@@ -20,11 +20,9 @@ require("./js/v.js");
 require("./js/populate.js");
 require("./js/controls.js");
 
-import { visibility, newsfeed, banner } from './js/v.js';
+import { visibility, newsfeed, banner } from "./js/v.js";
 //import {visibility} from "./main.js";
 //doLoad();
-
-
 
 export default {
   name: "appx",
@@ -32,8 +30,14 @@ export default {
     return {
       message: "Hello World!",
       l: [0, 1, 2, 3],
-      newsfeed: true,//newsfeed,
-      banner: true,//banner,
+      login: false,
+      register: this.$root.register,
+      home: this.$root.home,
+      form_message: this.$root.form_message,
+      form_exercise: this.$root.form_exercise,
+      form_workout: this.$root.form_workout,
+      newsfeed: this.$root.newsfeed,
+      banner: this.$root.banner,
     };
   },
   components: {
@@ -46,7 +50,7 @@ export default {
   mounted() {
     console.log("appx");
     console.log(visibility);
-    console.log(newsfeed + " " + banner);
+    console.log(this.$root.newsfeed + " " + this.$root.banner);
   },
   methods: {
     classOption: function (i) {
