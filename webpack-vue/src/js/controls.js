@@ -1,7 +1,9 @@
+
 import Vue from "vue";
 
 require("./v.js");
 require("./populate.js");
+
 import { subtreeStr, setMessage, insertFeed, setExercise } from './populate.js';
 import { focusNews } from "./v.js";
 
@@ -55,15 +57,20 @@ function formChooseDeet(i) {
 }
 
 export function formSubmitMessage() {
+  console.log("here 1");
+  
   const msg_orig = document.getElementById("message_txt");
   console.log(msg_orig.value);
   const msg = msg_orig.value;
   const pic_orig = document.getElementById('myImg1');
   const pic = pic_orig.src;
+  console.log("here 2");
 
   const d = new Date();
+  console.log("here 3");
 
   const obj = JSON.parse(subtreeStr);
+  console.log("here 4");
 
   obj.show_message = true;
   obj.show_workout = false;
@@ -71,7 +78,7 @@ export function formSubmitMessage() {
   obj.visible = true;
   obj.message = msg;
   obj.message_obj_message = msg;
-  obj.message_obj_from = "John Doe"
+  obj.message_obj_from = "John Doe";
   obj.picture_large = pic;
   obj.date_now = d;
 
@@ -120,7 +127,7 @@ function formSubmitExercise() {
 
 /* --------- support fn -------------  */
 
-function preview_image_msg(event) {
+export function preview_image_msg(event) {
   const reader = new FileReader();
   reader.onload = function () {
     const output = document.getElementById('myImg1');
@@ -128,10 +135,11 @@ function preview_image_msg(event) {
     output.src = reader.result;
     console.log("get pic");
   }
-  reader.readAsDataURL(event.target.files[0]);
+  const f = this.$refs.picButton.files;
+  reader.readAsDataURL(f[0]);//event.target.files[0]);
 }
 
-function preview_image_ex(event) {
+export function preview_image_ex(event) {
   const reader = new FileReader();
   reader.onload = function () {
     const output = document.getElementById('myImg2');

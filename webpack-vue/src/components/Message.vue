@@ -20,8 +20,8 @@
 
                     <div class="file">
                       <label class="file-label">
-                        <input class="file-input is-primary" type="file" name="resume" id="pic-button"
-                          onchange="preview_image_msg(event)">
+                        <input class="file-input is-primary" type="file" name="resume" id="pic-button" ref="picButton"
+                          @change="_preview_image_msg($event)" multiple>
                         <span class="file-cta">
                           <span class="file-icon">
                             <i class="fas fa-upload"></i>
@@ -50,22 +50,23 @@
 </template>
 
 <script>
-require("../js/populate.js");
-require("../js/controls.js");
-require("../js/v.js");
+//require("../js/populate.js");
+//require("../js/controls.js");
+//require("../js/v.js");
 
-//import {  useFormSubmitMessage } from "../js/v.js";
+//const {  preview_image_msg } = require( "../js/controls.js");
 
 export default {
   name: "message",
   data: () => ({
-    //return {};
+    
   }),
   props: {
     newsfeed: Boolean,
     focusFormMessage: Function,
     form_message: Boolean,
-    useFormSubmitMessage: Function
+    useFormSubmitMessage: Function,
+    _preview_image_msg: Function
     //classOption: Function
   },
   methods: {

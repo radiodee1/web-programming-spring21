@@ -2,7 +2,7 @@ import Vue from "vue";
 import appx from "../App.vue";
 
 require("./populate.js");
-import   {formSubmitMessage}  from './populate.js';
+const   {formSubmitMessage, preview_image_msg} = require ('./populate.js');
 
 //export let visibility = null;
 //console.log(data);
@@ -117,6 +117,9 @@ export function doLoad() {
       useFormSubmitMessage: function () {
         formSubmitMessage();
         
+      },
+      preview_image_msg: function () {
+        preview_image_msg();
       }
 
 

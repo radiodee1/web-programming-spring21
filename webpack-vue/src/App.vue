@@ -15,6 +15,7 @@
       :focusLogin="focusLogin"
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
+      :_preview_image_msg="_preview_image_msg"
 
     ></bannercomponent>
     <feedcontainer
@@ -32,6 +33,7 @@
       :focusLogin="focusLogin"
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
+      :_preview_image_msg="_preview_image_msg"
 
     ></feedcontainer>
     <register
@@ -49,6 +51,7 @@
       :focusLogin="focusLogin"
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
+      :_preview_image_msg="_preview_image_msg"
 
     ></register>
     <login
@@ -66,6 +69,7 @@
       :focusLogin="focusLogin"
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
+      :_preview_image_msg="_preview_image_msg"
 
     ></login>
     <home
@@ -83,6 +87,7 @@
       :focusLogin="focusLogin"
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
+      :_preview_image_msg="_preview_image_msg"
 
     ></home>
     <message
@@ -100,6 +105,7 @@
       :focusLogin="focusLogin"
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
+      :_preview_image_msg="_preview_image_msg"
 
     ></message>
   </div>
@@ -116,11 +122,13 @@ import home from "./components/Home.vue";
 import login from "./components/Login.vue";
 import message from "./components/Message.vue";
 
-require("./js/v.js");
-require("./js/populate.js");
-require("./js/controls.js");
+//require("./js/v.js");
+//require("./js/populate.js");
+//require("./js/controls.js");
 
 import { visibility, newsfeed, banner } from "./js/v.js";
+const   {formSubmitMessage} = require ('./js/populate.js');
+
 //import {visibility} from "./main.js";
 //doLoad();
 
@@ -128,8 +136,7 @@ export default {
   name: "appx",
   data() {
     return {
-      //message: "Hello World!",
-      //l: [0, 1, 2, 3],
+
       login: this.$root.login,
       register: this.$root.register,
       home: this.$root.home,
@@ -193,6 +200,10 @@ export default {
     },
     useFormSubmitMessage: function () {
       this.$root.useFormSubmitMessage();
+      this.copyVals();
+    },
+    _preview_image_msg: function () {
+      this.$root.preview_image_msg();
       this.copyVals();
     }
   },
