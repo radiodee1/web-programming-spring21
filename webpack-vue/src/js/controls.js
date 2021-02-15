@@ -3,7 +3,7 @@ import Vue from "vue";
 require("./v.js");
 require("./populate.js");
 import { subtreeStr, setMessage, insertFeed, setExercise } from './populate.js';
-import { focusNews} from "./v.js";
+import { focusNews } from "./v.js";
 
 function controlDropdownType() {
 
@@ -56,7 +56,7 @@ function formChooseDeet(i) {
 
 export function formSubmitMessage() {
   const msg_orig = document.getElementById("message_txt");
-  //console.log(msg.value);
+  console.log(msg_orig.value);
   const msg = msg_orig.value;
   const pic_orig = document.getElementById('myImg1');
   const pic = pic_orig.src;
@@ -75,7 +75,7 @@ export function formSubmitMessage() {
   obj.picture_large = pic;
   obj.date_now = d;
 
-  console.log(obj.length + " len");
+  console.log(obj + " len");
 
   const b = setMessage(obj, msg);
 

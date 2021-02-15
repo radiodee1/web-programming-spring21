@@ -2,7 +2,7 @@ import Vue from "vue";
 import appx from "../App.vue";
 
 require("./populate.js");
-import {  formSubmitMessage } from './populate.js';
+import   {formSubmitMessage}  from './populate.js';
 
 //export let visibility = null;
 //console.log(data);
@@ -113,8 +113,10 @@ export function doLoad() {
         this.form_message = false;
         this.form_workout = true;
       },
+
       useFormSubmitMessage: function () {
         formSubmitMessage();
+        
       }
 
 

@@ -16,7 +16,7 @@
 
                 <nav class="level">
                   <div class="level-left">
-                    <button class="button is-primary" @click="useFormSubmitMessage()">Submit</button>
+                    <button class="button is-primary" @click="useFormSubmitMessage();">Submit</button>
 
                     <div class="file">
                       <label class="file-label">
@@ -50,17 +50,17 @@
 </template>
 
 <script>
-require("../js/v.js");
 require("../js/populate.js");
 require("../js/controls.js");
+require("../js/v.js");
 
-//import {  formSubmitMessage } from "../js/controls.js";
+//import {  useFormSubmitMessage } from "../js/v.js";
 
 export default {
   name: "message",
-  data() {
-    return {};
-  },
+  data: () => ({
+    //return {};
+  }),
   props: {
     newsfeed: Boolean,
     focusFormMessage: Function,
