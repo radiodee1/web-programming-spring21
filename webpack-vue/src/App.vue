@@ -24,6 +24,8 @@ import { visibility, newsfeed, banner } from './js/v.js';
 //import {visibility} from "./main.js";
 //doLoad();
 
+
+
 export default {
   name: "appx",
   data() {
@@ -44,6 +46,7 @@ export default {
   mounted() {
     console.log("appx");
     console.log(visibility);
+    console.log(newsfeed + " " + banner);
   },
   methods: {
     classOption: function (i) {
