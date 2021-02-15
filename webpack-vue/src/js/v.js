@@ -37,7 +37,7 @@ export function doLoad() {
       },
 
 
-        focusRegister: function() {
+      focusRegister: function () {
         register = true;
         login = false;
         newsfeed = false;
@@ -46,8 +46,8 @@ export function doLoad() {
         form_message = false;
         form_workout = false;
       },
-      
-        focusLogin: function() {
+
+      focusLogin: function () {
         login = true;
         register = false;
         newsfeed = false;
@@ -56,9 +56,9 @@ export function doLoad() {
         form_message = false;
         form_workout = false;
       },
-      
-        focusNews: function() {
-      
+
+      focusNews: function () {
+
         login = false;
         register = false;
         newsfeed = true;
@@ -66,11 +66,11 @@ export function doLoad() {
         form_exercise = false;
         form_message = false;
         form_workout = false;
-      
-      
+
+
       },
-      
-        focusReset: function() {
+
+      focusReset: function () {
         login = false;
         register = false;
         newsfeed = false;
@@ -80,8 +80,8 @@ export function doLoad() {
         form_message = false;
         form_workout = false;
       },
-      
-        focusFormExercise: function() {
+
+      focusFormExercise: function () {
         login = false;
         register = false;
         newsfeed = false;
@@ -91,8 +91,8 @@ export function doLoad() {
         form_message = false;
         form_workout = false;
       },
-      
-        focusFormMessage: function() {
+
+      focusFormMessage: function () {
         login = false;
         register = false;
         newsfeed = false;
@@ -102,8 +102,8 @@ export function doLoad() {
         form_message = true;
         form_workout = false;
       },
-      
-        focusFormWorkout: function() {
+
+      focusFormWorkout: function () {
         login = false;
         register = false;
         newsfeed = true;
@@ -135,7 +135,7 @@ export function classOption(i) {
   else return 'invis';
 }
 
- function focusRegister() {
+function focusRegister() {
   visibility.register = true;
   visibility.login = false;
   visibility.newsfeed = false;
@@ -145,7 +145,7 @@ export function classOption(i) {
   visibility.form_workout = false;
 }
 
- function focusLogin() {
+function focusLogin() {
   visibility.login = true;
   visibility.register = false;
   visibility.newsfeed = false;
@@ -155,7 +155,7 @@ export function classOption(i) {
   visibility.form_workout = false;
 }
 
- export function focusNews() {
+export function focusNews() {
 
   visibility.login = false;
   visibility.register = false;
@@ -168,7 +168,7 @@ export function classOption(i) {
 
 }
 
- function focusReset() {
+function focusReset() {
   visibility.login = false;
   visibility.register = false;
   visibility.newsfeed = false;
@@ -190,7 +190,7 @@ export function focusFormExercise() {
   visibility.form_workout = false;
 }
 
- function focusFormMessage() {
+function focusFormMessage() {
   visibility.login = false;
   visibility.register = false;
   visibility.newsfeed = false;
@@ -201,7 +201,7 @@ export function focusFormExercise() {
   visibility.form_workout = false;
 }
 
- export function focusFormWorkout() {
+export function focusFormWorkout() {
   visibility.login = false;
   visibility.register = false;
   visibility.newsfeed = true;
