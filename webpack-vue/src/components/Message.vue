@@ -21,7 +21,7 @@
                     <div class="file">
                       <label class="file-label">
                         <input class="file-input is-primary" type="file" name="resume" id="pic-button" ref="picButton"
-                          @change="_preview_image_msg($event)" multiple>
+                          @change="_preview_image_msg" >
                         <span class="file-cta">
                           <span class="file-icon">
                             <i class="fas fa-upload"></i>

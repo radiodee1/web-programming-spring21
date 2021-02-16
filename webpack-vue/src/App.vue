@@ -126,8 +126,8 @@ import message from "./components/Message.vue";
 //require("./js/populate.js");
 //require("./js/controls.js");
 
-import { visibility, newsfeed, banner } from "./js/v.js";
-const   {formSubmitMessage} = require ('./js/populate.js');
+import { visibility } from "./js/exercise.js";
+//const   {formSubmitMessage} = require ('./js/populate.js');
 
 //import {visibility} from "./main.js";
 //doLoad();
@@ -202,8 +202,10 @@ export default {
       this.$root.useFormSubmitMessage();
       this.copyVals();
     },
-    _preview_image_msg: function () {
-      this.$root.preview_image_msg();
+    _preview_image_msg: function (e) {
+      //console.log("at message");
+      //console.log(e);
+      this.$root.preview_image_msg(e);
       this.copyVals();
     }
   },

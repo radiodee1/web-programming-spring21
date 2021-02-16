@@ -38,8 +38,8 @@
 <script>
 
 
-require("../js/v.js");
-import {  doLoad, visibility } from '../js/v.js';
+//require("../js/v.js");
+//import {  doLoad, visibility } from '../js/v.js';
 
 export default {
   name: "feedcontainer",
