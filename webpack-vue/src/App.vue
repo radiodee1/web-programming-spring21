@@ -17,6 +17,7 @@
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
+      :items="items"
 
     ></bannercomponent>
     <feedcontainer
@@ -36,6 +37,7 @@
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
+      :items="items"
 
     ></feedcontainer>
     <register
@@ -55,6 +57,7 @@
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
+      :items="items"
 
     ></register>
     <login
@@ -74,6 +77,7 @@
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
+      :items="items"
 
     ></login>
     <home
@@ -93,6 +97,7 @@
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
+      :items="items"
 
     ></home>
     <message
@@ -112,6 +117,7 @@
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
+      :items="items"
 
     ></message>
   </div>
@@ -151,6 +157,8 @@ export default {
       form_workout: this.$root.form_workout,
       newsfeed: this.$root.newsfeed,
       banner: this.$root.banner,
+
+      items: this.$root.items
     };
   },
   components: {

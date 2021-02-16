@@ -19,11 +19,13 @@
 
         <div id="components">
           <!-- template here ? -->
-          <item></item>
         </div>
         <div id="listing">
-          <ul>
+          <ul >
             <!-- template here ? -->
+            <li v-for="i in items" :key="i">
+            <item :i="i" :makeId="makeId"> </item>
+            </li>
           </ul>
         </div>
         <!-- vue end -->
@@ -53,7 +55,8 @@ export default {
   },
   props: {
     newsfeed: Boolean,
-    makeId: Function
+    makeId: Function,
+    items: Array
     //classOption: Function
   },
   components: {

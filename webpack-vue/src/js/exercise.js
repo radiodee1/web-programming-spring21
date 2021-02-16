@@ -477,6 +477,10 @@ export function preview_image_ex(event) {
 
 /* --------------- vue functions ------------------- */
 
+var feed_array = [];
+for (var x = 0; x < feed_limit; x ++) {
+  feed_array.push(x);
+}
 
 export function doLoad() {
 
@@ -492,7 +496,9 @@ export function doLoad() {
         banner: true,
         form_message: false,
         form_exercise: false,
-        form_workout: false
+        form_workout: false,
+
+        items: feed_array
       };
     },
     mounted() {
@@ -597,7 +603,7 @@ export function doLoad() {
     }
   });
 
-  makeFeedComponent();
+  //makeFeedComponent();
   makeInvocation();
 
 

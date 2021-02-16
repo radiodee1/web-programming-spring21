@@ -1,5 +1,5 @@
 <template>
-  <div id="" class="card"  v-show="visible" ref="" >
+  <div :id="makeId(i)" class="card"  v-show="visible" :ref="makeId(i)" > <!--v-show="visible" -->
     <div class="card-image">
       <figure class="image is-4by3">
         <img src="../assets/app.png" alt="Placeholder image" id="">
@@ -59,6 +59,7 @@ export default {
   },
   props: {
     newsfeed: Boolean,
+    makeId: Function
     //classOption: Function
   },
   methods: {
