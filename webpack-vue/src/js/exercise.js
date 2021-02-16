@@ -88,80 +88,7 @@ function makeId(num, prefix="feed-num-") {
   return prefix + num;
 }
 
-/*
-function makeTemplate (id) {
 
-  let template_00 = `<div id="`+ makeId(id) +`" class="card"  v-show="visible" ref="` + makeId(id, "ref") + `" >
-    <div class="card-image">
-      <figure class="image is-4by3">
-        <img src="./pic/app.png" alt="Placeholder image" id="` + makeId(id,'pic') + `">
-      </figure>
-    </div>
-    <div class="card-content">
-      <div class="media">
-        <div class="media-left">
-          <figure class="image is-48x48">
-            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-          </figure>
-        </div>
-        <div class="media-content">
-          <p class="title is-4"> {{ message_obj_from }} </p>
-          <!-- p class="subtitle is-6">@johnsmith</p -->
-        </div>
-      </div>
-      <!-- three contents -->
-      <!-- ` 
-      + id +
-      ` {{ visible }} -->
-      <div class="content"  v-bind:class=" classExercise(show_exercise)">
-        <pre>{{exercise_obj_message}}</pre>
-        <a>@bulmaio</a>.
-        <a href="#">#css</a> <a href="#">#responsive</a>
-        <br>
-        <time datetime="">{{ date_now }}</time>
-      </div>
-
-      <div class="content"  v-bind:class=" classMessage(show_message)">
-        message - {{ message_obj_message }} <!-- a>@bulmaio</a>.
-        <a href="#">#css</a> <a href="#">#responsive</a -->
-        <br>
-        <time datetime="">{{ date_now }}</time>
-      </div>
-
-      <div class="content"  v-bind:class=" classWorkout(show_workout)">
-        workout - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-        <a href="#">#css</a> <a href="#">#responsive</a>
-        <br>
-        <time datetime="">{{ date_now }}</time>
-      </div>
-      <!-- end three contents -->
-    </div>
-  </div>`;
-  return template_00;
-}
-
-function makeTemplateList() {
-  let z = "<ul> ";
-  for (let x = 0; x < feed_limit; x ++) {
-    //xx = tree.feed[x].num;
-
-    z += "<li>";
-    z += makeTemplate(x);
-    z += "</li>";
-  }
-  z += "</ul>";
-  return z;
-}
-
-let template_list = makeTemplateList();
-
-
-export function makeFeedComponent() {
-  const element = document.getElementById("components");
-  element.innerHTML = template_list;  
-}
-*/
 
 export function makeInvocation() {
   for (let x = 0; x < feed_limit; x ++) {
@@ -304,34 +231,7 @@ export function setWorkout(obj, msg="workout here.") {
   return subtree;
 }
 
-/*
-function testInsertMsg() {
-  const subtree = JSON.parse(subtreeStr);
 
-  //focusFormMessage();
-  let obj = setMessage(subtree); 
-  insertFeed(obj);
-  
-}
-
-function testInsertWorkout() {
-  const subtree = JSON.parse(subtreeStr);
-  subtree.picture_large = null;
-  focusFormWorkout();
-  let obj = setWorkout(subtree); 
-  insertFeed(obj);
-  
-}
-
-function testInsertExercise() {
-  const subtree = JSON.parse(subtreeStr);
-  subtree.picture_large = null;
-  focusFormExercise();
-  let obj = setExercise(subtree); 
-  insertFeed(obj);
-  
-}
-*/
 
 /* ---------------- controls next ---------------- */
 

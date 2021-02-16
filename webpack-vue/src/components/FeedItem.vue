@@ -59,16 +59,7 @@ export default {
   name: "item",
   data() {
     return {
-      /*
-      show_workout: this.feed_divs[ + this.i].instance.show_workout,
-      show_exercise: this.feed_divs[ + this.i].instance.show_exercise,
-      show_message: this.feed_divs[ + this.i].instance.show_message,
-      date_now: this.feed_divs[ + this.i].instance.date_now,
-      message_obj_from: this.feed_divs[ + this.i].instance.message_obj_from,
-      message_obj_message: this.feed_divs[ + this.i].instance.message_obj_message,
-      exercise_obj_message: this.feed_divs[ + this.i].instance.exercise_obj_message,
-      visible: this.feed_divs[ + this.i].instance.visible
-      */
+      
     };
   },
   mounted() {

@@ -183,20 +183,13 @@ export default {
     login: login,
     message: message
   },
-  //props: ['focusRegister'],
+
   mounted() {
     console.log("appx");
-    //console.log(visibility);
-    //console.log(this.$root.newsfeed + " " + this.$root.banner);
-    //makeInvocation();
-    //feed_divs = makeInvocation();
-    //console.log("tree");
-    //console.log(this.tree);
+    
   },
   computed: {
-    //feed_divs: function () {
-    //  return makeInvocation(); // maybe some way to freeze this?
-    //},
+    
     tree: function () {
       return this.$root.tree;
     }
