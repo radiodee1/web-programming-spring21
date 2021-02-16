@@ -1,7 +1,7 @@
 <template> 
 
-  <div :id="makeId(i)" class="card"  v-show="visible" :ref="makeId(i)" > <!--v-show="visible" -->
-    {{i}}
+  <div :id="makeId(i)" class="card"  v-show="visible" :ref="makeId(i)" > 
+    
     <div class="card-image">
       <figure class="image is-4by3">
         <img src="../assets/app.png" alt="Placeholder image" :id="makeId(i, 'pic')">
@@ -50,10 +50,6 @@
 
 <script>
 import { feed_divs } from '../js/exercise';
-//require("../js/v.js");
-//require("../js/populate.js");
-//require("../js/controls.js");
-//import { feed_divs } from "../js/exercise.js";
 
 export default {
   name: "item",
@@ -101,9 +97,7 @@ export default {
     classWorkout: function (x) {
       return this.classOption(x);
     },
-    //shareFeed: function() {
-    //  this.$root.$emit('shared_feed', this.feed_divs);
-    //}
+    
 
   },
 };

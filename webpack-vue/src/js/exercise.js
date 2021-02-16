@@ -178,7 +178,7 @@ function listMaint(dict, feed_divs, tree) {
         document.getElementById(makeId(x, "pic")).src = '../assets/app.png'; // tree.feed[x].picture_large;
       }
       if(tree.feed[x].show_exercise == true ) {
-        document.getElementById(makeId(x, "pic")).src = '../assets/app.png'; //tree.feed[x].picture_large;
+        document.getElementById(makeId(x, "pic")).src = tree.feed[x].picture_large; // '../assets/app.png'; //tree.feed[x].picture_large;
       }
     }
     
@@ -212,8 +212,8 @@ export function setExercise(obj, msg="exercise here.") {
   subtree.show_message = false;
   subtree.show_workout = false;
   subtree.exercise_obj_label = msg;
-  subtree.picture_large = null;
-  subtree.picture_small = null;
+  //subtree.picture_large = null;
+  //subtree.picture_small = null;
   subtree.message = msg;
   subtree.visible = true;
   return subtree;
@@ -235,6 +235,7 @@ export function setWorkout(obj, msg="workout here.") {
 
 /* ---------------- controls next ---------------- */
 
+/*
 
 function controlDropdownType() {
 
@@ -284,6 +285,7 @@ function formChooseDeet(i) {
   controlDropdownDeet()
 
 }
+*/
 
 export function formSubmitMessage(feed_divs, tree) {
   //let feed = this.value;
@@ -321,12 +323,12 @@ export function formSubmitMessage(feed_divs, tree) {
   //focusNews();
 }
 
-function formSubmitWorkout() {
+function formSubmitWorkout(feed_divs, tree) {
   console.log("workout submit");
 
 }
 
-function formSubmitExercise() {
+function formSubmitExercise(feed_divs, tree) {
   console.log("exercise submit");
   const msg = document.getElementById('exercise_pre').textContent;
   const pic_orig = document.getElementById('myImg2');
@@ -342,7 +344,7 @@ function formSubmitExercise() {
   obj.visible = true;
   obj.message = msg;
   obj.exercise_obj_message = msg;
-  obj.message_obj_from = "John Doe"
+  obj.message_obj_from = "John Doe";
   obj.picture_large = pic;
   obj.date_now = d;
 
@@ -350,8 +352,8 @@ function formSubmitExercise() {
 
   const b = setExercise(obj, msg);
 
-  insertFeed(b);
-  focusNews();
+  insertFeed(b, feed_divs, tree);
+  //focusNews();
 }
 
 /* --------- support fn -------------  */
@@ -501,8 +503,15 @@ export function doLoad() {
         formSubmitMessage(feed_divs, tree);
         
       },
+      useFormSubmitExercise: function (feed_divs, tree) {
+        formSubmitExercise(feed_divs, tree);
+        
+      },
       preview_image_msg: function (e) {
         preview_image_msg(e);
+      },
+      preview_image_ex: function (e) {
+        preview_image_ex(e);
       }
 
 

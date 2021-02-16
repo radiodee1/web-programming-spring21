@@ -24,7 +24,7 @@
           <ul >
             <!-- template here ? -->
             <li v-for="i in items" :key="i">
-              Hello World.
+              
             <item :i="i" :makeId="makeId" :feed_divs="feed_divs" > </item>
             </li>
           </ul>

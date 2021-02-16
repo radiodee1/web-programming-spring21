@@ -3,10 +3,6 @@
 </template>
 
 <script>
-//require("../js/v.js");
-//require("../js/populate.js");
-//require("../js/controls.js");
-
 
 export default {
   name: "navigation",

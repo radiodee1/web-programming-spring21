@@ -49,24 +49,14 @@
 </template>
 
 <script>
-//import './../node_modules/bulma/css/bulma.css';
-//import '@/assets/bulma.css';
-//import '../../node_modules/bulma/css/bulma.css';
-//import '../assets/bulma.css';
-
-//require("../js/v.js");
-//require("../js/populate.js");
-//require("../js/controls.js");
-
-//import {  doLoad, visibility, classOption, focusFormExercise, focusFormMessage, focusFormWorkout } from '../js/v.js';
 
 export default {
-  //id: "#bannercomponent",
-  name: "bannercomponent",
+
+name: "bannercomponent",
   data() {
     return {};
   },
-  props: ["banner", "newsfeed", "focusFormMessage"] ,
+  props: ["banner", "newsfeed", "focusFormMessage", "focusFormExercise"] ,
 
 };
 
