@@ -2,7 +2,7 @@
   <div id="" class="card"  v-show="visible" ref="" >
     <div class="card-image">
       <figure class="image is-4by3">
-        <img src="./pic/app.png" alt="Placeholder image" id="">
+        <img src="../assets/app.png" alt="Placeholder image" id="">
       </figure>
     </div>
     <div class="card-content">

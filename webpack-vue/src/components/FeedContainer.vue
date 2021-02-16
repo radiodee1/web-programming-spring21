@@ -19,6 +19,7 @@
 
         <div id="components">
           <!-- template here ? -->
+          <item></item>
         </div>
         <div id="listing">
           <ul>
@@ -41,6 +42,9 @@
 //require("../js/v.js");
 //import {  doLoad, visibility } from '../js/v.js';
 
+import item from "./FeedItem.vue";
+
+
 export default {
   name: "feedcontainer",
   
@@ -49,7 +53,11 @@ export default {
   },
   props: {
     newsfeed: Boolean,
+    makeId: Function
     //classOption: Function
+  },
+  components: {
+    item: item
   },
   methods: {
     classOption: function (i) {

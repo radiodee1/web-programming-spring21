@@ -16,6 +16,7 @@
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
+      :makeId="makeId"
 
     ></bannercomponent>
     <feedcontainer
@@ -34,6 +35,7 @@
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
+      :makeId="makeId"
 
     ></feedcontainer>
     <register
@@ -52,6 +54,7 @@
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
+      :makeId="makeId"
 
     ></register>
     <login
@@ -70,6 +73,7 @@
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
+      :makeId="makeId"
 
     ></login>
     <home
@@ -88,6 +92,7 @@
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
+      :makeId="makeId"
 
     ></home>
     <message
@@ -106,6 +111,7 @@
       :focusFormMessage="focusFormMessage"
       :useFormSubmitMessage="useFormSubmitMessage"
       :_preview_image_msg="_preview_image_msg"
+      :makeId="makeId"
 
     ></message>
   </div>
@@ -207,6 +213,9 @@ export default {
       //console.log(e);
       this.$root.preview_image_msg(e);
       this.copyVals();
+    },
+    makeId: function (num, prefix="feed-num-") {
+      return prefix + num;
     }
   },
 }; 
