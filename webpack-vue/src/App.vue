@@ -18,6 +18,8 @@
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
       :items="items"
+      :feed_divs="feed_divs"
+      :tree="tree"
 
     ></bannercomponent>
     <feedcontainer
@@ -38,6 +40,8 @@
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
       :items="items"
+      :feed_divs="feed_divs"
+      :tree="tree"
 
     ></feedcontainer>
     <register
@@ -58,6 +62,8 @@
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
       :items="items"
+      :feed_divs="feed_divs"
+      :tree="tree"
 
     ></register>
     <login
@@ -78,6 +84,8 @@
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
       :items="items"
+      :feed_divs="feed_divs"
+      :tree="tree"
 
     ></login>
     <home
@@ -98,6 +106,8 @@
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
       :items="items"
+      :feed_divs="feed_divs"
+      :tree="tree"
 
     ></home>
     <message
@@ -118,6 +128,8 @@
       :_preview_image_msg="_preview_image_msg"
       :makeId="makeId"
       :items="items"
+      :feed_divs="feed_divs"
+      :tree="tree"
 
     ></message>
   </div>
@@ -138,7 +150,7 @@ import message from "./components/Message.vue";
 //require("./js/populate.js");
 //require("./js/controls.js");
 
-import { visibility } from "./js/exercise.js";
+import { tree, makeInvocation } from "./js/exercise.js";
 //const   {formSubmitMessage} = require ('./js/populate.js');
 
 //import {visibility} from "./main.js";
@@ -158,7 +170,9 @@ export default {
       newsfeed: this.$root.newsfeed,
       banner: this.$root.banner,
 
-      items: this.$root.items
+      items: this.$root.items,
+      //tree: this.$root.tree
+      feed_divs: makeInvocation()
     };
   },
   components: {
@@ -172,8 +186,20 @@ export default {
   //props: ['focusRegister'],
   mounted() {
     console.log("appx");
-    console.log(visibility);
-    console.log(this.$root.newsfeed + " " + this.$root.banner);
+    //console.log(visibility);
+    //console.log(this.$root.newsfeed + " " + this.$root.banner);
+    //makeInvocation();
+    //feed_divs = makeInvocation();
+    //console.log("tree");
+    //console.log(this.tree);
+  },
+  computed: {
+    //feed_divs: function () {
+    //  return makeInvocation(); // maybe some way to freeze this?
+    //},
+    tree: function () {
+      return this.$root.tree;
+    }
   },
   methods: {
     classOption: function (i) {
@@ -213,8 +239,11 @@ export default {
       this.copyVals();
     },
     useFormSubmitMessage: function () {
-      this.$root.useFormSubmitMessage();
+      var tree = this.tree;
+      var feed_divs = this.feed_divs;
+      this.$root.useFormSubmitMessage(feed_divs, tree);
       this.copyVals();
+      this.focusNews();
     },
     _preview_image_msg: function (e) {
       //console.log("at message");
@@ -224,6 +253,12 @@ export default {
     },
     makeId: function (num, prefix="feed-num-") {
       return prefix + num;
+    },
+    shared_feed: function(feed) {
+      //this.$root.$on('shared_feed', (feed) => {
+      console.log('shared feed');
+      console.log(feed);
+    //});
     }
   },
 }; 

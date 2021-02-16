@@ -25,7 +25,7 @@
             <!-- template here ? -->
             <li v-for="i in items" :key="i">
               Hello World.
-            <item :i="i" :makeId="makeId"> </item>
+            <item :i="i" :makeId="makeId" :feed_divs="feed_divs" > </item>
             </li>
           </ul>
         </div>
@@ -57,7 +57,8 @@ export default {
   props: {
     newsfeed: Boolean,
     makeId: Function,
-    items: Array
+    items: Array,
+    feed_divs: Array
     //classOption: Function
   },
   components: {
@@ -70,6 +71,9 @@ export default {
       if (x === true) return 'visi';
       else return 'invis';
     },
+    shareFeed: function() {
+      //this.$root.$emit('shared_feed', this.feed_divs);
+    }
   }
   
 };

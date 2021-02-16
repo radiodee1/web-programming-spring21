@@ -50,11 +50,6 @@
 </template>
 
 <script>
-//require("../js/populate.js");
-//require("../js/controls.js");
-//require("../js/v.js");
-
-//const {  preview_image_msg } = require( "../js/controls.js");
 
 export default {
   name: "message",
@@ -66,9 +61,15 @@ export default {
     focusFormMessage: Function,
     form_message: Boolean,
     useFormSubmitMessage: Function,
-    _preview_image_msg: Function
-    //classOption: Function
+    _preview_image_msg: Function,
+    feed_divs: Array,
+    tree: Object
+},
+  mounted() {
+    console.log("message");
+    console.log(this.feed_divs);
   },
+
   methods: {
     classOption: function (i) {
       //console.log(i);

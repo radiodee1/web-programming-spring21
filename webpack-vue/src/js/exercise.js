@@ -9,7 +9,7 @@ export let feed_full_length = 0;
 export const feed_limit = 10;
 // hard coded output
 
-let tree = {
+export let tree = {
   feed: []
 }
 
@@ -59,7 +59,7 @@ let single_div =  {
   
 };
 
-let feed_divs = [];
+export let feed_divs = [];
   
 export let subtreeStr = JSON.stringify(tree_feed_dict);
 
@@ -88,6 +88,7 @@ function makeId(num, prefix="feed-num-") {
   return prefix + num;
 }
 
+/*
 function makeTemplate (id) {
 
   let template_00 = `<div id="`+ makeId(id) +`" class="card"  v-show="visible" ref="` + makeId(id, "ref") + `" >
@@ -160,6 +161,7 @@ export function makeFeedComponent() {
   const element = document.getElementById("components");
   element.innerHTML = template_list;  
 }
+*/
 
 export function makeInvocation() {
   for (let x = 0; x < feed_limit; x ++) {
@@ -213,12 +215,12 @@ export function makeInvocation() {
 
     
   }
-
+  return feed_divs;
 }
 
 let do_loop = true;
 
-function listMaint(dict) {
+function listMaint(dict, feed_divs, tree) {
 
    //move all down 1
   tree.feed.unshift(dict);
@@ -246,10 +248,10 @@ function listMaint(dict) {
         document.getElementById(makeId(x, "pic")).src = tree.feed[x].picture_large;
       }
       if(tree.feed[x].show_workout == true ) {
-        document.getElementById(makeId(x, "pic")).src = './pic/app.png'; // tree.feed[x].picture_large;
+        document.getElementById(makeId(x, "pic")).src = '../assets/app.png'; // tree.feed[x].picture_large;
       }
       if(tree.feed[x].show_exercise == true ) {
-        document.getElementById(makeId(x, "pic")).src = './pic/app.png'; //tree.feed[x].picture_large;
+        document.getElementById(makeId(x, "pic")).src = '../assets/app.png'; //tree.feed[x].picture_large;
       }
     }
     
@@ -257,11 +259,11 @@ function listMaint(dict) {
 
 }
 
-export function insertFeed(dict) {
+export function insertFeed(dict, feed_divs, tree) {
   // insert message in db here.
   if (feed_full_length < feed_limit - 1) feed_full_length ++;
 
-  listMaint(dict);
+  listMaint(dict, feed_divs, tree);
   
   return;
 }
@@ -302,6 +304,7 @@ export function setWorkout(obj, msg="workout here.") {
   return subtree;
 }
 
+/*
 function testInsertMsg() {
   const subtree = JSON.parse(subtreeStr);
 
@@ -328,6 +331,7 @@ function testInsertExercise() {
   insertFeed(obj);
   
 }
+*/
 
 /* ---------------- controls next ---------------- */
 
@@ -381,8 +385,8 @@ function formChooseDeet(i) {
 
 }
 
-export function formSubmitMessage() {
-  //console.log("here 1");
+export function formSubmitMessage(feed_divs, tree) {
+  //let feed = this.value;
   
   const msg_orig = document.getElementById("message_txt");
   //console.log(msg_orig.value);
@@ -411,10 +415,10 @@ export function formSubmitMessage() {
 
   const b = setMessage(obj, msg);
 
-  insertFeed(b);
+  insertFeed(b, feed_divs, tree);
   document.getElementById("message_txt").value = "";
   //console.log(msg);
-  focusNews();
+  //focusNews();
 }
 
 function formSubmitWorkout() {
@@ -498,12 +502,14 @@ export function doLoad() {
         form_exercise: false,
         form_workout: false,
 
-        items: feed_array
+        items: feed_array,
+        tree: tree
       };
     },
     mounted() {
       console.log("mounted");
       console.log(this);
+      //makeInvocation();
     },
     methods: {
       classOption: function (i) {
@@ -591,8 +597,8 @@ export function doLoad() {
         this.form_workout = true;
       },
 
-      useFormSubmitMessage: function () {
-        formSubmitMessage();
+      useFormSubmitMessage: function (feed_divs, tree) {
+        formSubmitMessage(feed_divs, tree);
         
       },
       preview_image_msg: function (e) {
@@ -604,7 +610,7 @@ export function doLoad() {
   });
 
   //makeFeedComponent();
-  makeInvocation();
+  //makeInvocation();
 
 
 }

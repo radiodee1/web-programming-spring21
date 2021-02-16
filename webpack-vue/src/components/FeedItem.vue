@@ -1,8 +1,10 @@
-<template>
+<template> 
+
   <div :id="makeId(i)" class="card"  v-show="visible" :ref="makeId(i)" > <!--v-show="visible" -->
+    {{i}}
     <div class="card-image">
       <figure class="image is-4by3">
-        <img src="../assets/app.png" alt="Placeholder image" id="">
+        <img src="../assets/app.png" alt="Placeholder image" :id="makeId(i, 'pic')">
       </figure>
     </div>
     <div class="card-content">
@@ -47,19 +49,49 @@
 </template>
 
 <script>
+import { feed_divs } from '../js/exercise';
 //require("../js/v.js");
 //require("../js/populate.js");
 //require("../js/controls.js");
-
+//import { feed_divs } from "../js/exercise.js";
 
 export default {
   name: "item",
   data() {
-    return {};
+    return {
+      /*
+      show_workout: this.feed_divs[ + this.i].instance.show_workout,
+      show_exercise: this.feed_divs[ + this.i].instance.show_exercise,
+      show_message: this.feed_divs[ + this.i].instance.show_message,
+      date_now: this.feed_divs[ + this.i].instance.date_now,
+      message_obj_from: this.feed_divs[ + this.i].instance.message_obj_from,
+      message_obj_message: this.feed_divs[ + this.i].instance.message_obj_message,
+      exercise_obj_message: this.feed_divs[ + this.i].instance.exercise_obj_message,
+      visible: this.feed_divs[ + this.i].instance.visible
+      */
+    };
+  },
+  mounted() {
+    console.log("here");
+    console.log(this.$el.id);
+    console.log(this.feed_divs[ + this.i]);
+    //this.shareFeed();
+  },
+  computed: {
+      show_workout : function () {return this.feed_divs[ + this.i].instance.show_workout; },
+      show_exercise: function () {return  this.feed_divs[ + this.i].instance.show_exercise;},
+      show_message: function()  {return this.feed_divs[ + this.i].instance.show_message; },
+      date_now: function() {return this.feed_divs[ + this.i].instance.date_now;},
+      message_obj_from: function () {return this.feed_divs[ + this.i].instance.message_obj_from;},
+      message_obj_message: function () {return this.feed_divs[ + this.i].instance.message_obj_message;},
+      exercise_obj_message: function () {return this.feed_divs[ + this.i].instance.exercise_obj_message;},
+      visible: function () {return this.feed_divs[ + this.i].instance.visible;}
   },
   props: {
     newsfeed: Boolean,
-    makeId: Function
+    makeId: Function,
+    i: Number,
+    feed_divs: Array
     //classOption: Function
   },
   methods: {
@@ -69,6 +101,19 @@ export default {
       if (x === true) return "visi";
       else return "invis";
     },
+    classMessage: function (x) {
+      return this.classOption(x);
+    },
+    classExercise: function (x) {
+      return this.classOption(x);
+    },
+    classWorkout: function (x) {
+      return this.classOption(x);
+    },
+    //shareFeed: function() {
+    //  this.$root.$emit('shared_feed', this.feed_divs);
+    //}
+
   },
 };
 </script>
