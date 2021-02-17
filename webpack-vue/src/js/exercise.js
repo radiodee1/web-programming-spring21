@@ -652,7 +652,7 @@ export function makeUser() {
     username: "",
     password: "",
     height_inches: 0,
-    weight_lbs: 0,
+    weight_lbs: 150,
   };
 
 }

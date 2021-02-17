@@ -131,6 +131,7 @@
                   style="width: 100px"
                   min="0"
                   id="exercise_weight"
+                  :value="this.$root.user.weight_lbs"
                 /><span class="label">Your weight in LBS</span>
               </div>
             </nav>
@@ -257,7 +258,10 @@ export default {
         .textContent;
       const num = document.getElementById("exercise_num").value;
       const weight = document.getElementById("exercise_weight").value;
-      console.log(weight);
+      //console.log(weight);
+      if (weight != this.$root.user.weight_lbs) {
+        this.changeWeight(weight);
+      }
       const i = `Exercise Report:\nExercise Type: ${type}\nExercise Details: ${deet}\nRepitions: ${num}\nWeight: ${weight} LBS\n`;
       document.getElementById("exercise_pre").textContent = i;
       document.getElementById("exercise_pre").style.visibility = "visible";
@@ -266,6 +270,9 @@ export default {
 
     cancel: function () {
       this.focusNews();
+    },
+    changeWeight: function (new_weight) {
+      console.log(new_weight);
     }
   },
 };

@@ -163,7 +163,7 @@ export default {
           l = l + "\t";
         }
       }
-      console.log(l);
+      //console.log(l);
       this.checkType("review");
       this.useFormSubmitWorkout(l);
       this.focusNews();
