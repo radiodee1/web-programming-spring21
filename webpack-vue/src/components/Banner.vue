@@ -1,6 +1,6 @@
 <template>
   <div id="bannercomponent" >
-    <nav class="navbar gray" role="navigation" aria-label="main navigation">
+    <nav class="navbar gray" role="navigation" aria-label="main navigation" id="banner">
       <div class="navbar-brand">
         <a class="navbar-item" href="">
           <img src="../assets/app.png" width="56" height="56" />
@@ -68,3 +68,10 @@ name: "bannercomponent",
 
 
 </script>
+
+<style scoped>
+#banner {
+  position: fixed;
+  width: 100%;
+}
+</style>
