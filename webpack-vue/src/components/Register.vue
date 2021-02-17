@@ -318,6 +318,10 @@ export default {
       this.$root.user.username = username;
       this.$root.user.password = password;
 
+      //check if this (username) already exists!!
+
+      //save to db!!
+
       this.focusNews();
     }
   },
