@@ -23,6 +23,8 @@
       :focusFormExercise="focusFormExercise"
       :_preview_image_ex="_preview_image_ex"
       :useFormSubmitExercise="useFormSubmitExercise"
+      :focusFormWorkout="focusFormWorkout"
+      :_preview_image_wrk="_preview_image_wrk"
 
     ></bannercomponent>
     <feedcontainer
@@ -48,6 +50,8 @@
       :focusFormExercise="focusFormExercise"
       :_preview_image_ex="_preview_image_ex"
       :useFormSubmitExercise="useFormSubmitExercise"
+      :focusFormWorkout="focusFormWorkout"
+      :_preview_image_wrk="_preview_image_wrk"
 
     ></feedcontainer>
     <register
@@ -73,6 +77,8 @@
       :focusFormExercise="focusFormExercise"
       :_preview_image_ex="_preview_image_ex"
       :useFormSubmitExercise="useFormSubmitExercise"
+      :focusFormWorkout="focusFormWorkout"
+      :_preview_image_wrk="_preview_image_wrk"
 
     ></register>
     <login
@@ -98,6 +104,8 @@
       :focusFormExercise="focusFormExercise"
       :_preview_image_ex="_preview_image_ex"
       :useFormSubmitExercise="useFormSubmitExercise"
+      :focusFormWorkout="focusFormWorkout"
+      :_preview_image_wrk="_preview_image_wrk"
 
     ></login>
     <home
@@ -123,6 +131,8 @@
       :focusFormExercise="focusFormExercise"
       :_preview_image_ex="_preview_image_ex"
       :useFormSubmitExercise="useFormSubmitExercise"
+      :focusFormWorkout="focusFormWorkout"
+      :_preview_image_wrk="_preview_image_wrk"
 
     ></home>
     <message
@@ -148,6 +158,8 @@
       :focusFormExercise="focusFormExercise"
       :_preview_image_ex="_preview_image_ex"
       :useFormSubmitExercise="useFormSubmitExercise"
+      :focusFormWorkout="focusFormWorkout"
+      :_preview_image_wrk="_preview_image_wrk"
 
     ></message>
     <exercise
@@ -173,8 +185,37 @@
       :focusFormExercise="focusFormExercise"
       :_preview_image_ex="_preview_image_ex"
       :useFormSubmitExercise="useFormSubmitExercise"
+      :focusFormWorkout="focusFormWorkout"
+      :_preview_image_wrk="_preview_image_wrk"
 
     ></exercise>
+    <workout
+      :newsfeed="newsfeed"
+      :banner="banner"
+      :login="login"
+      :register="register"
+      :home="home"
+      :form_message="form_message"
+      :form_exercise="form_exercise" 
+      :form_workout="form_workout"
+      :focusRegister="focusRegister"
+      :focusNews="focusNews"
+      :focusReset="focusReset"
+      :focusLogin="focusLogin"
+      :focusFormMessage="focusFormMessage"
+      :useFormSubmitMessage="useFormSubmitMessage"
+      :_preview_image_msg="_preview_image_msg"
+      :makeId="makeId"
+      :items="items"
+      :feed_divs="feed_divs"
+      :tree="tree"
+      :focusFormExercise="focusFormExercise"
+      :_preview_image_ex="_preview_image_ex"
+      :useFormSubmitExercise="useFormSubmitExercise"
+      :focusFormWorkout="focusFormWorkout"
+      :_preview_image_wrk="_preview_image_wrk"
+
+    ></workout>
   </div>
 </template>
 
@@ -189,6 +230,7 @@ import home from "./components/Home.vue";
 import login from "./components/Login.vue";
 import message from "./components/Message.vue";
 import exercise from "./components/Exercise.vue";
+import workout from "./components/Workout.vue";
 
 import { tree, makeInvocation } from "./js/exercise.js";
 
@@ -218,7 +260,8 @@ export default {
     home: home,
     login: login,
     message: message,
-    exercise: exercise
+    exercise: exercise,
+    workout: workout
   },
 
   mounted() {
@@ -272,6 +315,10 @@ export default {
       this.$root.focusFormExercise();
       this.copyVals();
     },
+    focusFormWorkout: function () {
+      this.$root.focusFormWorkout();
+      this.copyVals();
+    },
     useFormSubmitMessage: function () {
       var tree = this.tree;
       var feed_divs = this.feed_divs;
@@ -296,6 +343,12 @@ export default {
       //console.log("at message");
       //console.log(e);
       this.$root.preview_image_ex(e);
+      this.copyVals();
+    },
+    _preview_image_wrk: function (e) {
+      //console.log("at message");
+      //console.log(e);
+      this.$root.preview_image_wrk(e);
       this.copyVals();
     },
     makeId: function (num, prefix="feed-num-") {

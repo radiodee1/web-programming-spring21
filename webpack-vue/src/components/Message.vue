@@ -66,8 +66,8 @@ export default {
     tree: Object
 },
   mounted() {
-    console.log("message");
-    console.log(this.feed_divs);
+    //console.log("message");
+    //console.log(this.feed_divs);
   },
 
   methods: {

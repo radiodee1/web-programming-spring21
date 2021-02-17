@@ -175,10 +175,10 @@ function listMaint(dict, feed_divs, tree) {
         document.getElementById(makeId(x, "pic")).src = tree.feed[x].picture_large;
       }
       if(tree.feed[x].show_workout == true ) {
-        document.getElementById(makeId(x, "pic")).src = '../assets/app.png'; // tree.feed[x].picture_large;
+        document.getElementById(makeId(x, "pic")).src = tree.feed[x].picture_large;
       }
       if(tree.feed[x].show_exercise == true ) {
-        document.getElementById(makeId(x, "pic")).src = tree.feed[x].picture_large; // '../assets/app.png'; //tree.feed[x].picture_large;
+        document.getElementById(makeId(x, "pic")).src = tree.feed[x].picture_large; // 
       }
     }
     
@@ -381,6 +381,16 @@ export function preview_image_ex(event) {
   reader.readAsDataURL(event.target.files[0]);
 }
 
+export function preview_image_wrk(event) {
+  const reader = new FileReader();
+  reader.onload = function () {
+    const output = document.getElementById('myImg3');
+    output.style.visibility = "visible";
+    output.src = reader.result;
+  }
+  reader.readAsDataURL(event.target.files[0]);
+}
+
 /* --------------- vue functions ------------------- */
 
 var feed_array = [];
@@ -512,6 +522,9 @@ export function doLoad() {
       },
       preview_image_ex: function (e) {
         preview_image_ex(e);
+      },
+      preview_image_wrk: function (e) {
+        preview_image_wrk(e);
       }
 
 

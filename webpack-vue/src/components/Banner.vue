@@ -28,7 +28,7 @@
         <div class="navbar-start">
           <a class="navbar-item" @click="focusFormExercise()"> Exercise </a>
 
-          <a class="navbar-item" @click="testInsertWorkout()"> Workout </a>
+          <a class="navbar-item" @click="focusFormWorkout()"> Workout </a>
 
           <a class="navbar-item" @click="focusFormMessage()"> Message </a>
         </div>
@@ -56,7 +56,13 @@ name: "bannercomponent",
   data() {
     return {};
   },
-  props: ["banner", "newsfeed", "focusFormMessage", "focusFormExercise"] ,
+  props: [
+    "banner", 
+    "newsfeed", 
+    "focusFormMessage", 
+    "focusFormExercise", 
+    "focusFormWorkout"
+    ] ,
 
 };
 

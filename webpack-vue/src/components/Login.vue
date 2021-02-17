@@ -42,6 +42,11 @@
         </p>
       </div>
     </div>
+
+    <label class="checkbox">
+      <input type="checkbox" />
+      Remember me
+    </label>
   </section>
 
   <!-- end login -->

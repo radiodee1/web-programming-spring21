@@ -38,7 +38,7 @@ con.connect(function(err) {
   "address VARCHAR(255), city VARCHAR(255), " + 
   "state VARCHAR(255), zip VARCHAR(255), " + 
   "email VARCHAR(255), username VARCHAR(255), " + 
-  "password VARCHAR(255), cookie VARCHAR(255) " + 
+  "password VARCHAR(255) "//, cookie VARCHAR(255) " + 
   // ", picture BLOB " + 
   " )";
   con.query(sql, function (err, result) {
@@ -164,6 +164,28 @@ con.connect(function(err) {
     if (err) throw err;
     console.log("Table likes created");
   });
+
+  /*
+  misc: list of misc data
+  user oriented
+  ----
+  id
+  from_user_id (num copied from num id)
+  height (user height)
+  weight (user weight)
+  cookie (login cookie)
+
+  */
+ var sql = "CREATE TABLE misc (id INT AUTO_INCREMENT PRIMARY KEY, " +
+ "from_user_id INT, " +
+ "height FLOAT, weight FLOAT, " +
+ "cookie VARCHAR(255)" +
+ 
+ " )";
+ con.query(sql, function (err, result) {
+   if (err) throw err;
+   console.log("Table likes created");
+ });
 
 
   con.end((err) => {

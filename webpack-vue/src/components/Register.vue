@@ -187,13 +187,17 @@
     <div>
       <div class="field is-grouped">
         <p class="control">
-          <a class="button is-primary" @click="focusNews();"> Submit </a>
+          <a class="button is-primary" @click="focusNews()"> Submit </a>
         </p>
         <p class="control">
-          <a class="button is-light" @click="focusReset();"> Cancel </a>
+          <a class="button is-light" @click="focusReset()"> Cancel </a>
         </p>
       </div>
     </div>
+    <label class="checkbox">
+      <input type="checkbox" />
+      Remember me
+    </label>
   </section>
   <!-- end register -->
 </template>
@@ -214,7 +218,7 @@ export default {
     newsfeed: Boolean,
     register: Boolean,
     focusNews: Function,
-    focusReset: Function
+    focusReset: Function,
     //classOption: Function
   },
 
