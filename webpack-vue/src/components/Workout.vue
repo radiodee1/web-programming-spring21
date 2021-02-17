@@ -37,7 +37,7 @@
             </div>
             <div class="message-body gray">
               <ul>
-                <li>share me</li>
+                <li v-for="i in search_list" :key="i"><pre>{{ i }}</pre><br></li>
               </ul>
               <!-- textarea
                 id="message_txt"
@@ -48,7 +48,7 @@
               <div class="control">
                 <nav class="level">
                   <div class="level-left">
-                    <button class="button is-primary" @click="search()">
+                    <button class="button is-primary" @click="submit()">
                       Submit
                     </button>
 
@@ -84,7 +84,7 @@
         </div>
         <div id="review-div" v-if="review_div">
           <ul>
-            <li>review me</li>
+            <li v-for="i in search_list" :key="i"><pre>{{ i }}</pre><br></li>
           </ul>
         </div>
       </div>
@@ -100,6 +100,7 @@ export default {
     search_day: 0,
     share_div: false,
     review_div: true,
+    search_list: [],
   }),
   props: {
     newsfeed: Boolean,
@@ -125,8 +126,11 @@ export default {
     searchDay: function (day) {
       this.search_day = day;
     },
-    search: function () {},
+    search: function () {
+      this.search_list = this.makeList();
+    },
     checkType: function (check) {
+      this.search_list = [];
       if (check == "share") {
         this.share_div = true;
         this.review_div = false;
@@ -135,6 +139,20 @@ export default {
         this.review_div = true;
       }
     },
+    makeList: function () {
+      return ["part 1", "part 2", "part 3"];
+    },
+    submit: function () {
+      // submit
+      let l = "";
+      for (let x = 0; x < this.search_list.length; x ++) {
+        l = l + this.search_list[x] ;
+        if (x < this.search_list.length - 1) {
+          l = l + "\t";
+        }
+      }
+      console.log(l);
+    }
   },
 };
 </script>
