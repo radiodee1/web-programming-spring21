@@ -231,7 +231,7 @@
 //require("../js/controls.js");
 
 export default {
-  //el:"#register",
+
   name: "register",
   data() {
     return {};
