@@ -90,41 +90,38 @@
     <div class="columns">
       <!-- height -->
       <div class="field column">
-        
         <div class="columns">
-        <div class="column">
-        <div class="control has-icons-left has-icons-right">
-          <input
-            class="input is-medium"
-            type="text"
-            placeholder="Height Feet"
-          />
-          <span class="icon is-medium is-left">
-            <i class="fas"></i>
-          </span>
-          <span class="icon is-medium is-right">
-            <i class="fas fa-check"></i>
-          </span>
+          <div class="column">
+            <div class="control has-icons-left has-icons-right">
+              <input
+                class="input is-medium"
+                type="text"
+                placeholder="Height Feet"
+              />
+              <span class="icon is-medium is-left">
+                <i class="fas"></i>
+              </span>
+              <span class="icon is-medium is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </div>
+          </div>
+          <div class="column">
+            <div class="control has-icons-left has-icons-right">
+              <input
+                class="input is-medium"
+                type="text"
+                placeholder="Height Inches"
+              />
+              <span class="icon is-medium is-left">
+                <i class="fas"></i>
+              </span>
+              <span class="icon is-medium is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </div>
+          </div>
         </div>
-        </div>
-        <div class="column">
-        <div class="control has-icons-left has-icons-right">
-          <input
-            class="input is-medium"
-            type="text"
-            placeholder="Height Inches"
-          />
-          <span class="icon is-medium is-left">
-            <i class="fas"></i>
-          </span>
-          <span class="icon is-medium is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </div>
-
-        </div>
-        </div>
-        
       </div>
       <!-- weight -->
       <div class="field column">
@@ -147,18 +144,18 @@
     <!-- email -->
     <div class="columns">
       <div class="column">
-    <div class="field ">
-      <div class="control has-icons-left has-icons-right">
-        <input class="input is-medium" type="email" placeholder="email" />
-        <span class="icon is-medium is-left">
-          <i class="fas fa-envelope"></i>
-        </span>
-        <span class="icon is-medium is-right">
-          <i class="fas fa-check"></i>
-        </span>
+        <div class="field">
+          <div class="control has-icons-left has-icons-right">
+            <input class="input is-medium" type="email" placeholder="email" />
+            <span class="icon is-medium is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-medium is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
     </div>
 
     <div class="columns">
