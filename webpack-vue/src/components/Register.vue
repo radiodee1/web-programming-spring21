@@ -278,6 +278,7 @@ export default {
       const city = document.getElementById("city").value;
       const state = document.getElementById("state").value;
       const zip = document.getElementById("zip").value;
+      const email = document.getElementById("email").value;
 
       const feet = document.getElementById("feet").value;
       const inches = document.getElementById("inches").value;
@@ -316,7 +317,7 @@ export default {
       this.$root.user.email = email;
       this.$root.user.username = username;
       this.$root.user.password = password;
-      
+
       this.focusNews();
     }
   },
