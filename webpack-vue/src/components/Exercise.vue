@@ -135,7 +135,7 @@
                 /><span class="label">Your weight in LBS</span>
               </div>
             </nav>
-            <button class="button is-primary" @click="formFinishExercise()">
+            <button class="button " @click="formFinishExercise()">
               Finish
             </button>
             <pre id="exercise_pre" style="visibility: hidden"></pre>
@@ -262,8 +262,8 @@ export default {
       if (weight != this.$root.user.weight_lbs) {
         this.changeWeight(weight);
       }
-      const i = `Exercise Report:\nExercise Type: ${type}\nExercise Details: ${deet}\nRepitions: ${num}\nWeight: ${weight} LBS\n`;
-      document.getElementById("exercise_pre").textContent = i;
+      const i = `Exercise Type: ${type}\nExercise Details: ${deet}\nRepitions: ${num}\nWeight: ${weight} LBS\n`;
+      document.getElementById("exercise_pre").textContent = `Exercise Report:\n` +  i;
       document.getElementById("exercise_pre").style.visibility = "visible";
       document.getElementById("exercise_submit").style.visibility = "visible";
     },
@@ -273,6 +273,8 @@ export default {
     },
     changeWeight: function (new_weight) {
       console.log(new_weight);
+      // save to db!!
+      this.$root.user.weight_lbs = new_weight;
     }
   },
 };

@@ -642,8 +642,8 @@ export function focusFormWorkout() {
 
 export function makeUser() {
   return {
-    firstname: "David",
-    lastname: "Liebman",
+    firstname: "John",
+    lastname: "Doe",
     address: "",
     city: "",
     state: "",
