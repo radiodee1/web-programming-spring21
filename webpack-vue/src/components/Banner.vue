@@ -1,6 +1,11 @@
 <template>
-  <div id="bannercomponent" >
-    <nav class="navbar gray" role="navigation" aria-label="main navigation" id="banner">
+  <div id="bannercomponent">
+    <nav
+      class="navbar gray"
+      role="navigation"
+      aria-label="main navigation"
+      id="banner"
+    >
       <div class="navbar-brand">
         <a class="navbar-item" href="">
           <img src="../assets/app.png" width="56" height="56" />
@@ -38,6 +43,7 @@
     </nav>
 
     <section class="section" v-if="banner">
+      <br />
       <div class="container">
         <h1 class="title">Exercise App</h1>
         <p class="subtitle">
@@ -49,24 +55,19 @@
 </template>
 
 <script>
-
 export default {
-
-name: "bannercomponent",
+  name: "bannercomponent",
   data() {
     return {};
   },
   props: [
-    "banner", 
-    "newsfeed", 
-    "focusFormMessage", 
-    "focusFormExercise", 
-    "focusFormWorkout"
-    ] ,
-
+    "banner",
+    "newsfeed",
+    "focusFormMessage",
+    "focusFormExercise",
+    "focusFormWorkout",
+  ],
 };
-
-
 </script>
 
 <style scoped>

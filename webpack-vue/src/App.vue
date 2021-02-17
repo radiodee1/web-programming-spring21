@@ -240,7 +240,7 @@ import message from "./components/Message.vue";
 import exercise from "./components/Exercise.vue";
 import workout from "./components/Workout.vue";
 
-import { tree, makeInvocation } from "./js/exercise.js";
+import {  makeInvocation, makeUser } from "./js/exercise.js";
 
 export default {
   name: "appx",
@@ -257,7 +257,7 @@ export default {
       banner: this.$root.banner,
 
       items: this.$root.items,
-      //tree: this.$root.tree
+      user: this.$root.user,
       feed_divs: makeInvocation()
     };
   },

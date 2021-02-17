@@ -235,59 +235,8 @@ export function setWorkout(obj, msg="workout here.") {
 
 /* ---------------- controls next ---------------- */
 
-/*
 
-function controlDropdownType() {
-
-  if (document.getElementById('exercise_type').classList.contains("is-active")) {
-
-    document.getElementById('exercise_type').classList.remove("is-active");
-  }
-  else {
-
-    document.getElementById('exercise_type').classList.add("is-active");
-  }
-
-}
-
-function controlDropdownDeet() {
-
-  if (document.getElementById('exercise_type_deet').classList.contains("is-active")) {
-
-    document.getElementById('exercise_type_deet').classList.remove("is-active");
-  }
-  else {
-
-    document.getElementById('exercise_type_deet').classList.add("is-active");
-  }
-
-}
-
-function formFinishExercise() {
-  const type = document.getElementById('exercise_type_label').textContent;
-  const deet = document.getElementById('exercise_type_deet_label').textContent;
-  const num = document.getElementById('exercise_num').value;
-  const weight = document.getElementById('exercise_weight').value;
-  console.log(weight);
-  const i = `Exercise Report:\nExercise Type: ${type}\nExercise Details: ${deet}\nRepitions: ${num}\nWeight: ${weight} LBS\n`;
-  document.getElementById('exercise_pre').textContent = i;
-  document.getElementById('exercise_pre').style.visibility = "visible";
-  document.getElementById('exercise_submit').style.visibility = "visible";
-}
-
-function formChooseType(i) {
-  document.getElementById('exercise_type_label').textContent = i;
-  controlDropdownType();
-}
-
-function formChooseDeet(i) {
-  document.getElementById('exercise_type_deet_label').textContent = i;
-  controlDropdownDeet()
-
-}
-*/
-
-export function formSubmitMessage(feed_divs, tree) {
+export function formSubmitMessage(feed_divs, tree, ob = null) {
   //let feed = this.value;
   
   const msg_orig = document.getElementById("message_txt");
@@ -300,8 +249,15 @@ export function formSubmitMessage(feed_divs, tree) {
   const d = new Date();
   //console.log("here 3");
 
-  const obj = JSON.parse(subtreeStr);
-  //console.log("here 4");
+  let obj = null;
+  
+  if (ob == null) {
+    obj = JSON.parse(subtreeStr);
+  }
+  else {
+    obj = ob;
+  }
+
 
   obj.show_message = true;
   obj.show_workout = false;
@@ -309,7 +265,7 @@ export function formSubmitMessage(feed_divs, tree) {
   obj.visible = true;
   obj.message = msg;
   obj.message_obj_message = msg;
-  obj.message_obj_from = "John Doe";
+  //obj.message_obj_from = "John Doe";
   obj.picture_large = pic;
   obj.date_now = d;
 
@@ -323,7 +279,7 @@ export function formSubmitMessage(feed_divs, tree) {
   //focusNews();
 }
 
-function formSubmitWorkout(msg, feed_divs, tree) {
+function formSubmitWorkout(msg, feed_divs, tree, ob = null) {
   console.log("workout submit + "+ msg);
   //const msg = document.getElementById('workout_hidden').textContent;
   const pic_orig = document.getElementById('myImg3');
@@ -331,7 +287,14 @@ function formSubmitWorkout(msg, feed_divs, tree) {
 
   const d = new Date();
 
-  const obj = JSON.parse(subtreeStr);
+  let obj = null;
+
+  if (ob == null) {
+    obj = JSON.parse(subtreeStr);
+  }
+  else {
+    obj = ob;
+  }
 
   obj.show_message = false;
   obj.show_workout = true;
@@ -339,7 +302,7 @@ function formSubmitWorkout(msg, feed_divs, tree) {
   obj.visible = true;
   obj.message = msg;
   obj.workout_obj_exercise_list = msg;
-  obj.workout_obj_from = "John Doe";
+  //obj.workout_obj_from = "John Doe";
   obj.picture_large = pic;
   obj.date_now = d;
 
@@ -350,7 +313,7 @@ function formSubmitWorkout(msg, feed_divs, tree) {
   insertFeed(b, feed_divs, tree);
 }
 
-function formSubmitExercise(feed_divs, tree) {
+function formSubmitExercise(feed_divs, tree, ob = null) {
   console.log("exercise submit");
   const msg = document.getElementById('exercise_pre').textContent;
   const pic_orig = document.getElementById('myImg2');
@@ -358,7 +321,15 @@ function formSubmitExercise(feed_divs, tree) {
 
   const d = new Date();
 
-  const obj = JSON.parse(subtreeStr);
+  let obj = null;
+  
+  if (ob == null) {
+    obj = JSON.parse(subtreeStr);
+  }
+  else {
+    obj = ob;
+  }
+
 
   obj.show_message = false;
   obj.show_workout = false;
@@ -366,7 +337,7 @@ function formSubmitExercise(feed_divs, tree) {
   obj.visible = true;
   obj.message = msg;
   obj.exercise_obj_message = msg;
-  obj.message_obj_from = "John Doe";
+  //obj.message_obj_from = "John Doe";
   obj.picture_large = pic;
   obj.date_now = d;
 
@@ -437,7 +408,8 @@ export function doLoad() {
         form_workout: false,
 
         items: feed_array,
-        tree: tree
+        tree: tree,
+        user: this.makeUser()
       };
     },
     mounted() {
@@ -445,6 +417,10 @@ export function doLoad() {
       console.log(this);
       //makeInvocation();
     },
+    computed: {
+      //user: this.makeUser()
+    },
+
     methods: {
       classOption: function (i) {
         //console.log(i);
@@ -532,15 +508,24 @@ export function doLoad() {
       },
 
       useFormSubmitMessage: function (feed_divs, tree) {
-        formSubmitMessage(feed_divs, tree);
+        const obj = JSON.parse(subtreeStr);
+        obj.message_obj_from = this.user.firstname + " " + this.user.lastname;
+        formSubmitMessage(feed_divs, tree, obj);
         
       },
       useFormSubmitExercise: function (feed_divs, tree) {
-        formSubmitExercise(feed_divs, tree);
+        const obj = JSON.parse(subtreeStr);
+        obj.message_obj_from = this.user.firstname + " " + this.user.lastname;
+
+        formSubmitExercise(feed_divs, tree, obj);
         
       },
       useFormSubmitWorkout: function (msg, feed_divs, tree) {
-        formSubmitWorkout(msg, feed_divs, tree);
+        const obj = JSON.parse(subtreeStr);
+        //console.log(this.user);
+        obj.message_obj_from = this.user.firstname + " " + this.user.lastname;
+
+        formSubmitWorkout(msg, feed_divs, tree, obj);
         
       },
       preview_image_msg: function (e) {
@@ -551,8 +536,10 @@ export function doLoad() {
       },
       preview_image_wrk: function (e) {
         preview_image_wrk(e);
+      },
+      makeUser: function () {
+        return makeUser();
       }
-
 
     }
   });
@@ -651,3 +638,21 @@ export function focusFormWorkout() {
   visibility.form_workout = true;
 }
 
+/* ---------- sql etc -----------  */
+
+export function makeUser() {
+  return {
+    firstname: "David",
+    lastname: "Liebman",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    email: "",
+    username: "",
+    password: "",
+    height_inches: 0,
+    weight_lbs: 0,
+  };
+
+}
