@@ -33,11 +33,18 @@
           <article class="message box">
             <div class="message-header">
               <p>Share Workout</p>
-              <button class="delete" aria-label="delete"></button>
+              <button
+                class="delete"
+                aria-label="delete"
+                @click="cancel()"
+              ></button>
             </div>
             <div class="message-body gray">
               <ul>
-                <li v-for="i in search_list" :key="i"><pre>{{ i }}</pre><br></li>
+                <li v-for="i in search_list" :key="i">
+                  <pre>{{ i }}</pre>
+                  <br />
+                </li>
               </ul>
               <!-- textarea
                 id="message_txt"
@@ -84,9 +91,13 @@
         </div>
         <div id="review-div" v-if="review_div">
           <ul>
-            <li v-for="i in search_list" :key="i"><pre>{{ i }}</pre><br></li>
+            <li v-for="i in search_list" :key="i">
+              <pre>{{ i }}</pre>
+              <br />
+            </li>
           </ul>
         </div>
+        <button class="button" @click="cancel()">Done</button>
       </div>
       <div class="column"></div>
     </div>
@@ -107,6 +118,7 @@ export default {
     focusFormMessage: Function,
     form_workout: Boolean,
     useFormSubmitMessage: Function,
+    focusNews: Function,
     _preview_image_wrk: Function,
     feed_divs: Array,
     tree: Object,
@@ -145,14 +157,18 @@ export default {
     submit: function () {
       // submit
       let l = "";
-      for (let x = 0; x < this.search_list.length; x ++) {
-        l = l + this.search_list[x] ;
+      for (let x = 0; x < this.search_list.length; x++) {
+        l = l + this.search_list[x];
         if (x < this.search_list.length - 1) {
           l = l + "\t";
         }
       }
       console.log(l);
-    }
+    },
+    cancel: function () {
+      this.checkType("review");
+      this.focusNews();
+    },
   },
 };
 </script>

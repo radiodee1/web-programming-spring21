@@ -8,7 +8,7 @@
           <article class="message box" v-if="form_message">
             <div class="message-header">
               <p>Public Message</p>
-              <button class="delete" aria-label="delete"></button>
+              <button class="delete" aria-label="delete" @click="cancel();"></button>
             </div>
             <div class="message-body gray">
               <textarea id="message_txt" class="textarea" placeholder="What's on your mind?!" rows="10"></textarea>
@@ -61,6 +61,7 @@ export default {
     focusFormMessage: Function,
     form_message: Boolean,
     useFormSubmitMessage: Function,
+    focusNews: Function,
     _preview_image_msg: Function,
     feed_divs: Array,
     tree: Object
@@ -77,6 +78,9 @@ export default {
       if (x === true) return "visi";
       else return "invis";
     },
+    cancel: function () {
+      this.focusNews();
+    }
   },
 };
 </script>

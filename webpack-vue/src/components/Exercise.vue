@@ -8,7 +8,7 @@
           <!-- v-if="form_exercise" -->
           <div class="message-header">
             <p>Exercise</p>
-            <button class="delete" aria-label="delete"></button>
+            <button class="delete" aria-label="delete" @click="cancel();"></button>
           </div>
           <div class="message-body gray">
             <!-- start first dropdown -->
@@ -205,6 +205,7 @@ export default {
     focusFormExercise: Function,
     form_exercise: Boolean,
     useFormSubmitExercise: Function,
+    focusNews: Function,
     _preview_image_ex: Function,
     feed_divs: Array,
     tree: Object,
@@ -262,6 +263,10 @@ export default {
       document.getElementById("exercise_pre").style.visibility = "visible";
       document.getElementById("exercise_submit").style.visibility = "visible";
     },
+
+    cancel: function () {
+      this.focusNews();
+    }
   },
 };
 </script>
