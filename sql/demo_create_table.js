@@ -171,15 +171,15 @@ con.connect(function(err) {
   ----
   id
   from_user_id (num copied from num id)
-  height (user height)
+  height_inches (user height)
   weight (user weight)
   cookie (login cookie)
 
   */
  var sql = "CREATE TABLE misc (id INT AUTO_INCREMENT PRIMARY KEY, " +
  "from_user_id INT, " +
- "height FLOAT, weight FLOAT, " +
- "cookie VARCHAR(255)" +
+ "height_inches FLOAT, weight FLOAT, " +
+ "cookie VARCHAR(255) " +
  
  " )";
  con.query(sql, function (err, result) {
