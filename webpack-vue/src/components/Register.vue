@@ -293,6 +293,8 @@ export default {
         this.message_password_1 = true;
         return;
       }
+      //check if this (username) already exists!!
+
       const username_taken = false;
       if (username_taken) {
         this.message_username_1 = true;
@@ -304,7 +306,6 @@ export default {
       this.$root.user.city = city;
       this.$root.user.state = state;
       this.$root.user.zip = zip;
-      //this.$root.user.feet = feet;
 
       let num =  (+feet * 12) + (+inches);
       
@@ -317,8 +318,6 @@ export default {
       this.$root.user.email = email;
       this.$root.user.username = username;
       this.$root.user.password = password;
-
-      //check if this (username) already exists!!
 
       //save to db!!
 
