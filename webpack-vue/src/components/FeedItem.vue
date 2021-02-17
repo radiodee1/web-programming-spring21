@@ -23,8 +23,7 @@
       <!--  {{ visible }} -->
       <div class="content"  v-bind:class=" classExercise(show_exercise)">
         <pre>{{exercise_obj_message}}</pre>
-        <a>@bulmaio</a>.
-        <a href="#">#css</a> <a href="#">#responsive</a>
+        
         <br>
         <time datetime="">{{ date_now }}</time>
       </div>
@@ -37,9 +36,14 @@
       </div>
 
       <div class="content"  v-bind:class=" classWorkout(show_workout)">
-        workout - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-        <a href="#">#css</a> <a href="#">#responsive</a>
+        
+        <ul>
+          <li v-for="ob in workout_obj_exercise_list" :key="ob">
+            <pre>{{ob}}</pre><br>
+          </li>
+        </ul>
+
+        
         <br>
         <time datetime="">{{ date_now }}</time>
       </div>
@@ -72,6 +76,18 @@ export default {
       message_obj_from: function () {return this.feed_divs[ + this.i].instance.message_obj_from;},
       message_obj_message: function () {return this.feed_divs[ + this.i].instance.message_obj_message;},
       exercise_obj_message: function () {return this.feed_divs[ + this.i].instance.exercise_obj_message;},
+      
+      workout_obj_exercise_list: function () {
+        let msg = this.feed_divs[+ this.i].instance.workout_obj_exercise_list;
+        console.log(msg + " list");
+        if (typeof msg === "undefined" || msg == null) {
+          msg = "no data";
+        }
+        let msg_lst = msg.split("\t");
+
+        return msg_lst;
+      },
+
       visible: function () {return this.feed_divs[ + this.i].instance.visible;}
   },
   props: {

@@ -178,7 +178,7 @@ function listMaint(dict, feed_divs, tree) {
         document.getElementById(makeId(x, "pic")).src = tree.feed[x].picture_large;
       }
       if(tree.feed[x].show_exercise == true ) {
-        document.getElementById(makeId(x, "pic")).src = tree.feed[x].picture_large; // 
+        document.getElementById(makeId(x, "pic")).src = tree.feed[x].picture_large; 
       }
     }
     
@@ -224,8 +224,8 @@ export function setWorkout(obj, msg="workout here.") {
   subtree.show_workout = true;
   subtree.show_message = false;
   subtree.show_exercise = false;
-  subtree.picture_small = null;
-  subtree.picture_large = null;
+  //subtree.picture_small = null;
+  //subtree.picture_large = null;
   subtree.message = msg;
   subtree.visible = true;
   return subtree;
@@ -323,9 +323,31 @@ export function formSubmitMessage(feed_divs, tree) {
   //focusNews();
 }
 
-function formSubmitWorkout(feed_divs, tree) {
-  console.log("workout submit");
+function formSubmitWorkout(msg, feed_divs, tree) {
+  console.log("workout submit + "+ msg);
+  //const msg = document.getElementById('workout_hidden').textContent;
+  const pic_orig = document.getElementById('myImg3');
+  const pic = pic_orig.src;
 
+  const d = new Date();
+
+  const obj = JSON.parse(subtreeStr);
+
+  obj.show_message = false;
+  obj.show_workout = true;
+  obj.show_exercise = false;
+  obj.visible = true;
+  obj.message = msg;
+  obj.workout_obj_exercise_list = msg;
+  obj.workout_obj_from = "John Doe";
+  obj.picture_large = pic;
+  obj.date_now = d;
+
+  //console.log(obj.length + " len");
+
+  const b = setWorkout(obj, msg);
+
+  insertFeed(b, feed_divs, tree);
 }
 
 function formSubmitExercise(feed_divs, tree) {
@@ -501,7 +523,7 @@ export function doLoad() {
       focusFormWorkout: function () {
         this.login = false;
         this.register = false;
-        this.newsfeed = true;
+        this.newsfeed = false;
         this.home = false;
         this.banner = true;
         this.form_exercise = false;
@@ -515,6 +537,10 @@ export function doLoad() {
       },
       useFormSubmitExercise: function (feed_divs, tree) {
         formSubmitExercise(feed_divs, tree);
+        
+      },
+      useFormSubmitWorkout: function (msg, feed_divs, tree) {
+        formSubmitWorkout(msg, feed_divs, tree);
         
       },
       preview_image_msg: function (e) {

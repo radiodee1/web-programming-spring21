@@ -117,7 +117,7 @@ export default {
     newsfeed: Boolean,
     focusFormMessage: Function,
     form_workout: Boolean,
-    useFormSubmitMessage: Function,
+    useFormSubmitWorkout: Function,
     focusNews: Function,
     _preview_image_wrk: Function,
     feed_divs: Array,
@@ -164,6 +164,9 @@ export default {
         }
       }
       console.log(l);
+      this.checkType("review");
+      this.useFormSubmitWorkout(l);
+      this.focusNews();
     },
     cancel: function () {
       this.checkType("review");

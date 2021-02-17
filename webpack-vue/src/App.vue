@@ -25,6 +25,7 @@
       :useFormSubmitExercise="useFormSubmitExercise"
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
+      :useFormSubmitWorkout="useFormSubmitWorkout"
 
     ></bannercomponent>
     <feedcontainer
@@ -52,6 +53,7 @@
       :useFormSubmitExercise="useFormSubmitExercise"
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
+      :useFormSubmitWorkout="useFormSubmitWorkout"
 
     ></feedcontainer>
     <register
@@ -79,6 +81,7 @@
       :useFormSubmitExercise="useFormSubmitExercise"
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
+      :useFormSubmitWorkout="useFormSubmitWorkout"
 
     ></register>
     <login
@@ -106,6 +109,7 @@
       :useFormSubmitExercise="useFormSubmitExercise"
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
+      :useFormSubmitWorkout="useFormSubmitWorkout"
 
     ></login>
     <home
@@ -133,6 +137,7 @@
       :useFormSubmitExercise="useFormSubmitExercise"
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
+      :useFormSubmitWorkout="useFormSubmitWorkout"
 
     ></home>
     <message
@@ -160,6 +165,7 @@
       :useFormSubmitExercise="useFormSubmitExercise"
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
+      :useFormSubmitWorkout="useFormSubmitWorkout"
 
     ></message>
     <exercise
@@ -187,6 +193,7 @@
       :useFormSubmitExercise="useFormSubmitExercise"
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
+      :useFormSubmitWorkout="useFormSubmitWorkout"
 
     ></exercise>
     <workout
@@ -214,6 +221,7 @@
       :useFormSubmitExercise="useFormSubmitExercise"
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
+      :useFormSubmitWorkout="useFormSubmitWorkout"
 
     ></workout>
   </div>
@@ -330,6 +338,13 @@ export default {
       var tree = this.tree;
       var feed_divs = this.feed_divs;
       this.$root.useFormSubmitExercise(feed_divs, tree);
+      this.copyVals();
+      this.focusNews();
+    },
+    useFormSubmitWorkout: function (msg) {
+      var tree = this.tree;
+      var feed_divs = this.feed_divs;
+      this.$root.useFormSubmitWorkout(msg, feed_divs, tree);
       this.copyVals();
       this.focusNews();
     },
