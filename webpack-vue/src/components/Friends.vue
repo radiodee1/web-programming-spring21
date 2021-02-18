@@ -37,9 +37,9 @@
                 <div class="level-left">
                   <button
                     class="button is-primary"
-                    @click="useFormSubmitMessage()"
+                    @click="refresh();"
                   >
-                    Submit
+                    Refresh
                   </button>
                 </div>
               </nav>
@@ -75,11 +75,14 @@ export default {
     },
     ask: function (num) {
       console.log(num);
-      this.list[num].status = "waiting";
+      this.list[num].status = "asked";
     },
     confirm: function (num) {
       console.log(num);
       this.list[num].status = "confirmed";
+    },
+    refresh: function () {
+      this.list = this.makeList();
     },
     makeList: function () {
       let l = [];
@@ -87,7 +90,8 @@ export default {
         firstname: "David",
         lastname: "Liebman",
         username: "xliebman",
-        status: "asked", // confirmed, asked, new, waiting,  etc.
+        status: "waiting", // confirmed, asked, new, waiting,  etc.
+        friend_user_id: 0,
       };
       l.push(dict);
       const dict2 = {
@@ -95,6 +99,7 @@ export default {
         lastname: "Liebman",
         username: "yliebman",
         status: "new", // confirmed, asked, new, waiting,  etc.
+        friend_user_id: 1,
       };
       //dict.firstname = "Dave";
       l.push(dict2);

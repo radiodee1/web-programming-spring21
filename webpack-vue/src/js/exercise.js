@@ -666,6 +666,7 @@ export function makeUser() {
     password: "",
     height_inches: 74,
     weight_lbs: 150,
+    id: 0,
   };
 
 }
