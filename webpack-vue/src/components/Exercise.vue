@@ -283,7 +283,7 @@ export default {
       this.focusNews();
     },
     changeWeight: function (new_weight) {
-      console.log(new_weight);
+      //console.log(new_weight);
       const w = + new_weight;
       const goal = this.$root.user.height_inches * this.lbs_inch;
       if(w > goal + this.lbs_margin) {
@@ -298,8 +298,6 @@ export default {
         this.weight_message = "Your weight is good.";
         this.show_message = true;
       }
-
-
       // save to db!!
       this.$root.user.weight_lbs = new_weight;
     }
