@@ -67,7 +67,7 @@
                           name="resume"
                           id="pic-button"
                           ref="picButton"
-                          @change="_preview_image_wrk"
+                          @change="showPicture"
                         />
                         <span class="file-cta">
                           <span class="file-icon">
@@ -80,7 +80,7 @@
                   </div>
                 </nav>
               </div>
-              <figure class="image is-4by3">
+              <figure class="image is-4by3" v-if="show_picture">
                 <img id="myImg3" src="../assets/app.png" class="invis" />
                 <!-- img src="./pic/app.png" alt="Placeholder image" -->
               </figure>
@@ -111,6 +111,7 @@ export default {
     search_day: 0,
     share_div: false,
     review_div: true,
+    show_picture: false,
     search_list: [],
   }),
   props: {
@@ -166,10 +167,16 @@ export default {
       //console.log(l);
       this.checkType("review");
       this.useFormSubmitWorkout(l);
+      this.show_picture = false;
       this.focusNews();
+    },
+    showPicture: function (e) {
+      this.show_picture = true;
+      this._preview_image_wrk(e);
     },
     cancel: function () {
       this.checkType("review");
+      this.show_picture = false;
       this.focusNews();
     },
   },

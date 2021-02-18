@@ -406,6 +406,7 @@ export function doLoad() {
         form_message: false,
         form_exercise: false,
         form_workout: false,
+        form_friends: false,
 
         items: feed_array,
         tree: tree,
@@ -505,6 +506,18 @@ export function doLoad() {
         this.form_exercise = false;
         this.form_message = false;
         this.form_workout = true;
+      },
+
+      focusFormFriends: function () {
+        this.login = false;
+        this.register = false;
+        this.newsfeed = false;
+        this.home = false;
+        this.banner = true;
+        this.form_exercise = false;
+        this.form_message = false;
+        this.form_workout = false;
+        this.form_friends = true;
       },
 
       useFormSubmitMessage: function (feed_divs, tree) {

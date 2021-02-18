@@ -36,6 +36,9 @@
           <a class="navbar-item" @click="focusFormWorkout()"> Workout </a>
 
           <a class="navbar-item" @click="focusFormMessage()"> Message </a>
+
+          <a class="navbar-item" @click="focusFormFriends()"> Friends </a>
+
         </div>
 
         <div class="navbar-end"></div>
@@ -66,6 +69,7 @@ export default {
     "focusFormMessage",
     "focusFormExercise",
     "focusFormWorkout",
+    "focusFormFriends",
   ],
 };
 </script>

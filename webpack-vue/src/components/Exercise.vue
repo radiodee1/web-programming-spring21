@@ -162,7 +162,7 @@
                     class="button is-primary"
                     id="exercise_submit"
                     style="visibility: hidden"
-                    @click="useFormSubmitExercise()"
+                    @click="submit()"
                   >
                     Submit
                   </button>
@@ -174,7 +174,7 @@
                         type="file"
                         name="resume"
                         id="pic-button"
-                        @change="_preview_image_ex"
+                        @change="showPicture"
                       />
                       <span class="file-cta">
                         <span class="file-icon">
@@ -187,7 +187,7 @@
                 </div>
               </nav>
             </div>
-            <figure class="image is-4by3">
+            <figure class="image is-4by3" v-if="show_picture">
               <img id="myImg2" src="../assets/app.png" class="invis" />
             </figure>
           </div>
@@ -208,7 +208,8 @@ export default {
       lbs_inch: 2.25,
       lbs_margin: 19,
       weight_message: "",
-      show_message: false
+      show_message: false,
+      show_picture: false
     };
   },
   props: {
@@ -277,10 +278,19 @@ export default {
       document.getElementById("exercise_pre").style.visibility = "visible";
       document.getElementById("exercise_submit").style.visibility = "visible";
     },
-
+    showPicture: function (e) {
+      this.show_picture = true;
+      this._preview_image_ex(e);
+    },
     cancel: function () {
       this.show_message = false;
+      this.show_picture = false;
       this.focusNews();
+    },
+    submit: function () {
+      this.show_picture = false;
+      this.show_message = false;
+      this.useFormSubmitExercise();
     },
     changeWeight: function (new_weight) {
       //console.log(new_weight);

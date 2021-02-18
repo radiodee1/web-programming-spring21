@@ -26,6 +26,8 @@
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
       :useFormSubmitWorkout="useFormSubmitWorkout"
+      :focusFormFriends="focusFormFriends"
+      :form_friends="form_friends"
 
     ></bannercomponent>
     <feedcontainer
@@ -54,6 +56,8 @@
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
       :useFormSubmitWorkout="useFormSubmitWorkout"
+      :focusFormFriends="focusFormFriends"
+      :form_friends="form_friends"
 
     ></feedcontainer>
     <register
@@ -82,6 +86,8 @@
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
       :useFormSubmitWorkout="useFormSubmitWorkout"
+      :focusFormFriends="focusFormFriends"
+      :form_friends="form_friends"
 
     ></register>
     <login
@@ -110,6 +116,8 @@
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
       :useFormSubmitWorkout="useFormSubmitWorkout"
+      :focusFormFriends="focusFormFriends"
+      :form_friends="form_friends"
 
     ></login>
     <home
@@ -138,6 +146,8 @@
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
       :useFormSubmitWorkout="useFormSubmitWorkout"
+      :focusFormFriends="focusFormFriends"
+      :form_friends="form_friends"
 
     ></home>
     <message
@@ -166,6 +176,8 @@
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
       :useFormSubmitWorkout="useFormSubmitWorkout"
+      :focusFormFriends="focusFormFriends"
+      :form_friends="form_friends"
 
     ></message>
     <exercise
@@ -194,6 +206,8 @@
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
       :useFormSubmitWorkout="useFormSubmitWorkout"
+      :focusFormFriends="focusFormFriends"
+      :form_friends="form_friends"
 
     ></exercise>
     <workout
@@ -222,8 +236,41 @@
       :focusFormWorkout="focusFormWorkout"
       :_preview_image_wrk="_preview_image_wrk"
       :useFormSubmitWorkout="useFormSubmitWorkout"
+      :focusFormFriends="focusFormFriends"
+      :form_friends="form_friends"
 
     ></workout>
+    <friends
+      :newsfeed="newsfeed"
+      :banner="banner"
+      :login="login"
+      :register="register"
+      :home="home"
+      :form_message="form_message"
+      :form_exercise="form_exercise" 
+      :form_workout="form_workout"
+      :focusRegister="focusRegister"
+      :focusNews="focusNews"
+      :focusReset="focusReset"
+      :focusLogin="focusLogin"
+      :focusFormMessage="focusFormMessage"
+      :useFormSubmitMessage="useFormSubmitMessage"
+      :_preview_image_msg="_preview_image_msg"
+      :makeId="makeId"
+      :items="items"
+      :feed_divs="feed_divs"
+      :tree="tree"
+      :focusFormExercise="focusFormExercise"
+      :_preview_image_ex="_preview_image_ex"
+      :useFormSubmitExercise="useFormSubmitExercise"
+      :focusFormWorkout="focusFormWorkout"
+      :_preview_image_wrk="_preview_image_wrk"
+      :useFormSubmitWorkout="useFormSubmitWorkout"
+      :focusFormFriends="focusFormFriends"
+      :form_friends="form_friends"
+
+    ></friends>
+
   </div>
 </template>
 
@@ -239,6 +286,7 @@ import login from "./components/Login.vue";
 import message from "./components/Message.vue";
 import exercise from "./components/Exercise.vue";
 import workout from "./components/Workout.vue";
+import friends from "./components/Friends.vue";
 
 import {  makeInvocation, makeUser } from "./js/exercise.js";
 
@@ -253,6 +301,7 @@ export default {
       form_message: this.$root.form_message,
       form_exercise: this.$root.form_exercise,
       form_workout: this.$root.form_workout,
+      form_friends: this.$root.form_friends,
       newsfeed: this.$root.newsfeed,
       banner: this.$root.banner,
 
@@ -269,7 +318,8 @@ export default {
     login: login,
     message: message,
     exercise: exercise,
-    workout: workout
+    workout: workout,
+    friends: friends
   },
 
   mounted() {
@@ -296,6 +346,7 @@ export default {
       this.form_message = this.$root.form_message;
       this.form_exercise = this.$root.form_exercise;
       this.form_workout = this.$root.form_workout;
+      this.form_friends = this.$root.form_friends;
       this.newsfeed = this.$root.newsfeed;
       this.banner = this.$root.banner;
     },
@@ -325,6 +376,10 @@ export default {
     },
     focusFormWorkout: function () {
       this.$root.focusFormWorkout();
+      this.copyVals();
+    },
+    focusFormFriends: function () {
+      this.$root.focusFormFriends();
       this.copyVals();
     },
     useFormSubmitMessage: function () {
