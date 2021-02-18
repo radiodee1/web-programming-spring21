@@ -1,4 +1,4 @@
-# webpack-vue
+# client
 
 ## Project setup
 ```
@@ -22,8 +22,3 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### serve 
-```
-node_modules/serve/bin/serve.js -s dist
-```
