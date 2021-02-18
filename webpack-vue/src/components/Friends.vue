@@ -17,18 +17,17 @@
               <tr>
                 <th>Name</th>
                 <th>Username</th>
-                <th>Status</th>
                 <th>Controls</th>
               </tr>
-              <tr v-for="l in list" :key="l" class="list-style">
+              <tr v-for="(l, k ) in list" :key="k" class="list-style">
                 <td class="">{{ l.firstname }} {{ l.lastname }}</td>
                 <td class="">{{ l.username }}</td>
-                <td class="">{{ l.status }}</td>
+
                 <td>
-                  <button class="button is-primary is-small" v-if="l.status =='new'">Ask</button>
-                  <button class="button is-primary is-small" v-if="l.status =='asked'">Approve</button>
+                  <button class="button is-primary is-small" v-if="l.status =='new'" @click="ask(k);">Ask</button>
+                  <button class="button is-primary is-small" v-if="l.status =='waiting'" @click="confirm(k)">Approve</button>
                   <span v-if="l.status == 'confirmed'">Confirmed</span>
-                  <span v-if="l.status == 'waiting'">Waiting</span>
+                  <span v-if="l.status == 'asked'">Waiting</span>
 
                 </td>
               </tr>
@@ -74,19 +73,27 @@ export default {
       if (x === true) return "visi";
       else return "invis";
     },
+    ask: function (num) {
+      console.log(num);
+      this.list[num].status = "waiting";
+    },
+    confirm: function (num) {
+      console.log(num);
+      this.list[num].status = "confirmed";
+    },
     makeList: function () {
       let l = [];
       const dict = {
         firstname: "David",
         lastname: "Liebman",
         username: "xliebman",
-        status: "waiting", // confirmed, asked, new, waiting,  etc.
+        status: "asked", // confirmed, asked, new, waiting,  etc.
       };
       l.push(dict);
       const dict2 = {
         firstname: "Dave",
         lastname: "Liebman",
-        username: "xliebman",
+        username: "yliebman",
         status: "new", // confirmed, asked, new, waiting,  etc.
       };
       //dict.firstname = "Dave";
