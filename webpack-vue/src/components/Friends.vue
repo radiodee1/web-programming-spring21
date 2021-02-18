@@ -83,8 +83,14 @@ export default {
         status: "waiting", // confirmed, asked, new, waiting,  etc.
       };
       l.push(dict);
-      dict.firstname = "Dave";
-      l.push(dict);
+      const dict2 = {
+        firstname: "Dave",
+        lastname: "Liebman",
+        username: "xliebman",
+        status: "new", // confirmed, asked, new, waiting,  etc.
+      };
+      //dict.firstname = "Dave";
+      l.push(dict2);
       return l;
     },
   },
