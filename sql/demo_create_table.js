@@ -96,7 +96,7 @@ con.connect(function(err) {
   id
   user_id (user)
   friend_user_id (associated friend)
-  friend_status (some string constant like 'asked', 'confirmed', etc.)
+  friend_status (some string constant like 'asked', 'confirmed', 'new' ,etc.)
   date (date of association start)
   */
   var sql = "CREATE TABLE friends (id INT AUTO_INCREMENT PRIMARY KEY, " +
