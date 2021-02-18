@@ -133,8 +133,13 @@
                   id="exercise_weight"
                   :value="this.$root.user.weight_lbs"
                 /><span class="label">Your weight in LBS</span>
+                
+
               </div>
             </nav>
+            <div v-if="show_message"><br>
+                  {{ weight_message }}
+                </div>
             <button class="button " @click="formFinishExercise()">
               Finish
             </button>
@@ -199,7 +204,12 @@
 export default {
   name: "exercise",
   data() {
-    return {};
+    return {
+      lbs_inch: 2.25,
+      lbs_margin: 19,
+      weight_message: "",
+      show_message: false
+    };
   },
   props: {
     newsfeed: Boolean,
@@ -269,10 +279,27 @@ export default {
     },
 
     cancel: function () {
+      this.show_message = false;
       this.focusNews();
     },
     changeWeight: function (new_weight) {
       console.log(new_weight);
+      const w = + new_weight;
+      const goal = this.$root.user.height_inches * this.lbs_inch;
+      if(w > goal + this.lbs_margin) {
+        this.weight_message = "Your weight is too high.";
+        this.show_message = true;
+      }
+      else if (w < goal - this.lbs_margin) {
+        this.weight_message = "Your weight is too low.";
+        this.show_message = true;
+      }
+      else {
+        this.weight_message = "Your weight is good.";
+        this.show_message = true;
+      }
+
+
       // save to db!!
       this.$root.user.weight_lbs = new_weight;
     }
