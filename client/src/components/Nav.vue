@@ -1,5 +1,9 @@
 <template>
-  <nav class="navbar container is-primary" role="navigation" aria-label="main navigation">
+  <nav
+    class="navbar container is-primary"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
         <i class="fas fa-address-card fa-3x fa-fw fa-pulse"></i>
@@ -42,7 +46,7 @@
 
       <div class="navbar-end">
         <div class="navbar-item">
-                      <router-link to="/Shop" class="navbar-item"> Shop </router-link>
+          <router-link to="/Shop" class="navbar-item"> Shop </router-link>
 
           <div class="buttons">
             <a class="button is-primary">
@@ -56,9 +60,7 @@
   </nav>
 </template>
 <script>
-export default {
-
-};
+export default {};
 </script>
 <style scoped>
 </style>
