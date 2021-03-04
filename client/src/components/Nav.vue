@@ -15,7 +15,8 @@
         class="navbar-burger"
         aria-label="menu"
         aria-expanded="false"
-        data-target="navbarBasicExample"
+        :class="{ 'is-active': isActive }"
+        @click="isActive = !isActive"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -23,7 +24,7 @@
       </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div  class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-start">
         <router-link to="/" class="navbar-item"> Feed </router-link>
         <router-link to="/mywall" class="navbar-item"> My Wall </router-link>
@@ -49,20 +50,27 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <router-link to="/Shop" class="navbar-item"> Shop </router-link>
-
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light"> Log in </a>
-          </div>
+          <LoginBadge></LoginBadge>
+          
         </div>
       </div>
     </div>
   </nav>
 </template>
 <script>
-export default {};
+import LoginBadge from "./LoginBadge.vue";
+
+export default {
+  data: () => {
+    return {
+      isActive: false
+    }
+  },
+  components: {
+    LoginBadge
+  }
+
+};
 </script>
 <style scoped>
 </style>
