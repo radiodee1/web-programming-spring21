@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import MyWall from "../views/MyWall.vue";
 
 import Documentation from "../views/Documentation.vue";
+import Session from '../models/Session';
 
 Vue.use(VueRouter)
 
@@ -39,5 +40,13 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if(to.path == '/mywall' && !Session.user) {
+    next('/login');
+  } else {
+    next();
+  }
+} )
 
 export default router

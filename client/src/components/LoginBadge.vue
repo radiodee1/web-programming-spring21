@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Session from "../models/Session.js";
+import Session, { login,logout } from "../models/Session.js";
 export default {
   name: "LoginBadge",
   data() {
@@ -21,10 +21,10 @@ export default {
   },
   methods: {
     login() {
-      this.Session.user = { name: "Dave" };
+      login();
     },
     logout() {
-      this.Session.user = null;
+      logout();
     },
   },
 };
