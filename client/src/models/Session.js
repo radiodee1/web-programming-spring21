@@ -8,10 +8,10 @@ const Session = {
 
 export default Session;
 
-export function login() {
+export function Login() {
     Session.user = { name: "Dave", handle: "@jewpaltz" };
 }
 
-export function logout() {
+export function Logout() {
     Session.user = null;
 }
