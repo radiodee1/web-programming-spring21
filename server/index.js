@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 
 
 app
-.use(express.static('./docs'))
+.use(express.static('../docs'))
 .use('/users',usersCtrl)
 
 .get('*', (req, res) => {

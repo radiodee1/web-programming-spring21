@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import MyWall from "../views/MyWall.vue";
 
-import Documentation from "../views/Documentation.vue";
+import Documentation from '@/views/Documentation';
+import MyWall from '@/views/MyWall';
+import MyFeed from '@/views/MyFeed';
+import Login from '@/views/Login'
 import Session from '../models/Session';
 
 Vue.use(VueRouter)
@@ -15,7 +17,10 @@ const routes = [
     component: Home
   },
   {path:"/documentation", name:"Doc", component: Documentation},
-  {path:"/mywall", name:"MyWall", component: MyWall},
+
+  { path: '/login', name: 'Login', component: Login },
+  { path: '/mywall', name: 'MyWall', component: MyWall },
+  { path: '/feed', name: 'MyFeed', component: MyFeed },
 
   {
     path: '/about',
