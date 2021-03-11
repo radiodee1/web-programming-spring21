@@ -2,17 +2,23 @@
 
 */
 
-const express = require('express')
-const app = express()
-const port = 3000
+const path = require("path");
+const express = require('express');
+
+const usersCtrl = require('./controllers/users');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+
 
 app
-.get('/', (req, res) => {
-    res.send('Hello World!')
+.use(express.static('./docs'))
+.use('/users',usersCtrl)
+
+.get('*', (req, res) => {
+  res.sendFile( path.join(__dirname, '../docs/index.html' ) );
 })
-.get('/purim', (req, res) => {
-    res.send('Happy World!')
-}) 
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
