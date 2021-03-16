@@ -13,6 +13,7 @@ const port = process.env.PORT || 3000;
 
 
 app
+.use(express.json()) // <-- check e-app
 .use(express.static('../docs'))
 .use('/users',usersCtrl)
 
