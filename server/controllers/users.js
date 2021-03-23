@@ -19,6 +19,9 @@ const app = express.Router();
             console.log(req.headers);
             console.log(req.body);
         })
+        .post('/login', (req, res) => {
+            res.send(model.Login(req.body.handle, req.body.password));
+        })
         .patch('/:user_id', (req, res)=> res.send( model.Update(
             req.params.user_id,
             {
