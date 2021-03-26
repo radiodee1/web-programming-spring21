@@ -20,6 +20,12 @@ const app = express.Router();
             console.log(req.body);
         })
         .post('/login', (req, res) => {
+            model.Register(req.body)
+            .then(user=> res.send(user))
+            //res.send(model.Login(req.body.handle, req.body.password));
+        })
+        
+        .post('/register', (req, res) => {
             res.send(model.Login(req.body.handle, req.body.password));
         })
         .patch('/:user_id', (req, res)=> res.send( model.Update(

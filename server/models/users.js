@@ -2,6 +2,8 @@
 
 */
 
+const bcrypt = require('bcrypt');
+
 const list = [
     { 
         firstName: 'Moshe',
@@ -37,6 +39,18 @@ module.exports.Add = (user)=> {
      list.push(user);
      return { ...user, password: undefined };
 }
+module.exports.Register = (user)=> {
+
+    const hash = await bcrypt.hash(user.password, 8)
+    
+    user.password = hash;
+    if(!user.firstName){
+        throw "First Name is reqired"
+    }
+        list.push(user);
+        return { ...user, password: undefined };
+
+}
 module.exports.Update = (user_id, user)=> {
     const oldObj = list[user_id];
     if(user.firstName){
@@ -66,3 +80,4 @@ module.exports.Login = (handle, password) => {
 
     return user;
 }
+
