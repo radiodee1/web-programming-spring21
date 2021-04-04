@@ -3,6 +3,12 @@
 */
 
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const dotenv = require("dotenv");
+dotenv.config();
+
+const SALT_ROUNDS = process.env.SALT_ROUNDS ;
+const JWT_SECRET = process.env.JWT_SECRET ;
 
 const list = [
     { 
@@ -39,9 +45,9 @@ module.exports.Add = (user)=> {
      list.push(user);
      return { ...user, password: undefined };
 }
-module.exports.Register = (user)=> {
+module.exports.Register = async (user)=> {
 
-    const hash = await bcrypt.hash(user.password, 8)
+    const hash = await bcrypt.hash(user.password, +SALT_ROUNDS)
     
     user.password = hash;
     if(!user.firstName){
@@ -78,6 +84,19 @@ module.exports.Login = (handle, password) => {
     const user = list.find(x => x.handle == handle && x.password == password);
     if(!user) throw {code: 401, msg: "Wrong Login"};
 
-    return user;
+    const data = { ... user, password: null}
+    const token = jwt.sign(data, JWT_SECRET);
+    return {user, token};
 }
 
+module.exports.FromJWT = async (token) => {
+    try{
+        const user = jwt.verify(token, JWT_SECRET);
+        return user;
+    }
+    catch (error) {
+        console.log(error);
+        return null;
+    }
+    
+}
