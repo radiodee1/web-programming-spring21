@@ -1,8 +1,8 @@
-http://localhost:3000/users/
+http://localhost:3010/users/
 
 ###
 
-POST http://localhost:3000/users
+POST http://localhost:3010/users
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 http://localhost:3000/posts/2
 
 ###
-http://localhost:3000/users/login
+http://localhost:3010/users/login
 
 {
     "handle" : "",
