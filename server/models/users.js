@@ -1,14 +1,9 @@
-/* 
-
-*/
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const dotenv = require("dotenv");
-dotenv.config();
 
-const SALT_ROUNDS = process.env.SALT_ROUNDS ;
-const JWT_SECRET = process.env.JWT_SECRET ;
+const SALT_ROUNDS = process.env.SALT_ROUNDS;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const list = [
     { 
@@ -16,7 +11,9 @@ const list = [
         lastName: 'Plotkin',
         handle: '@JewPaltz',
         pic: 'https://bulma.io/images/placeholders/96x96.png',
-        password: 'Me',
+        password: '$2b$08$ovDdePT2UjP9nkMaOhpFgOQEsBclWpB9RfS2p5XZwq.vDIzwNw5ke',
+        isAdmin: true,
+        following: [ { handle: '@vp', isApproved: true }, { handle: '@johnsmith', isApproved: true }, ],
     },
     { 
         firstName: 'Kamala',
@@ -24,6 +21,8 @@ const list = [
         handle: '@vp',
         pic: 'https://bulma.io/images/placeholders/96x96.png',
         password: 'Her',
+        isAdmin: true,
+        following: [ { handle: '@johnsmith', isApproved: true }, ],
     },
     { 
         firstName: 'John',
@@ -31,6 +30,8 @@ const list = [
         handle: '@johnsmith',
         pic: 'https://bulma.io/images/placeholders/96x96.png',
         password: 'BeepBop',
+        isAdmin: true,
+        following: [ { handle: '@vp', isApproved: true }, ],
     },
 
 ];
@@ -40,21 +41,23 @@ module.exports.Get = (user_id)=> list[user_id];
 module.exports.GetByHandle = (handle)=> ({ ...list.find( (x, i)=> x.handle == handle ), password: undefined }) ;
 module.exports.Add = (user)=> {
     if(!user.firstName){
-        throw "First Name is reqired"
+        throw { code: 422, msg: "First Name is required" }
     }
      list.push(user);
      return { ...user, password: undefined };
 }
 module.exports.Register = async (user)=> {
 
-    const hash = await bcrypt.hash(user.password, +SALT_ROUNDS)
-    
+    const hash = await bcrypt.hash(user.password, +SALT_ROUNDS);
+
     user.password = hash;
+
     if(!user.firstName){
-        throw "First Name is reqired"
+        throw { code: 422, msg: "First Name is required" }
     }
-        list.push(user);
-        return { ...user, password: undefined };
+
+    list.push(user);
+    return { ...user, password: undefined };
 
 }
 module.exports.Update = (user_id, user)=> {
@@ -80,23 +83,29 @@ module.exports.Delete = (user_id)=> {
     return user;
 }
 
-module.exports.Login = (handle, password) => {
-    const user = list.find(x => x.handle == handle && x.password == password);
-    if(!user) throw {code: 401, msg: "Wrong Login"};
+module.exports.Login = async (handle, password) =>{
+    console.log({ handle, password})
+    const user = list.find(x=> x.handle == handle);
+    if(!user) throw { code: 401, msg: "Sorry there is no user with that handle" };
 
-    const data = { ... user, password: null}
-    const token = jwt.sign(data, JWT_SECRET);
-    return {user, token};
+    if( ! await bcrypt.compare(password, user.password) ){
+        throw { code: 401, msg: "Wrong Password" };
+    }
+
+    const data = { ...user, password: undefined };
+
+    const token = jwt.sign(data, JWT_SECRET)
+
+    return { user: data, token };
 }
 
-module.exports.FromJWT = async (token) => {
-    try{
+module.exports.FromJWT = async (token) =>{
+    try {
         const user = jwt.verify(token, JWT_SECRET);
-        return user;
-    }
-    catch (error) {
-        console.log(error);
+        return user;       
+    } catch (error) {
+        console.log({error});
         return null;
     }
-    
+
 }
