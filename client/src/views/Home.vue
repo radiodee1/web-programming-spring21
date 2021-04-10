@@ -11,6 +11,12 @@
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
 
+import { api } from "../models/myFetch";
+(async ()=>{
+  const actualItem = await api("posts");
+  console.log({actualItem});
+})()
+
 export default {
   name: 'Home',
   components: {
