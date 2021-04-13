@@ -22,7 +22,7 @@ export function api(url, data){
     return promise
         .then(x=> {
             if(x.ok) return x.json();
-            else return x.json().then(y=> { throw y; })
+            else return x.json().then(y=> { throw y; })//.catch(err => console.log(err))
         })
         .catch(err=>{
             console.error(err);

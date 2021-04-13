@@ -34,7 +34,7 @@ app
 
     // All the way at the end of the pipeline. Return instead of not found
     .get('*', (req, res) => {
-        res.sendFile( path.join(__dirname, '../docs/index.html' ) );
+        res.sendFile( path.join(__dirname, './docs/index.html' ) );
     })
 
     .use((error, req, res, next)=>{
