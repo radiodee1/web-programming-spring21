@@ -31,7 +31,6 @@ import Vue from "vue";
 import ContentCard from "../components/ContentCard";
 import ContentCreation from '../components/ContentCreation.vue';
 import { GetMyPosts } from "../models/Posts";
-
 export default Vue.extend({
     data: ()=> ({
         newPost: {
@@ -39,8 +38,8 @@ export default Vue.extend({
         },
         posts: []
     }),
-    mounted() {
-        this.posts = GetMyPosts();
+    async mounted() {
+        this.posts = await GetMyPosts();
     },
     components: {
         ContentCard,
