@@ -1,9 +1,13 @@
+/* B"H
 
+*/
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const SALT_ROUNDS = process.env.SALT_ROUNDS;
 const JWT_SECRET = process.env.JWT_SECRET;
+
+console.log(JWT_SECRET + " " + SALT_ROUNDS);
 
 const list = [
     { 

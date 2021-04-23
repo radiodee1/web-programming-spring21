@@ -21,6 +21,7 @@
 <script>
 import Vue from "vue";
 import { GetAllUsers } from "../models/Users";
+
 export default Vue.extend({
     data: ()=> ({
         users: []

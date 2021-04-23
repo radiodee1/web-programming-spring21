@@ -31,6 +31,7 @@ import Vue from "vue";
 import ContentCard from "../components/ContentCard";
 import ContentCreation from '../components/ContentCreation.vue';
 import { GetMyPosts } from "../models/Posts";
+
 export default Vue.extend({
     data: ()=> ({
         newPost: {
