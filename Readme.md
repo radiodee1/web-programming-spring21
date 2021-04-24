@@ -1,3 +1,1 @@
-#### B"H
-
-# This is going to be **THE** repo to watch for the most awesome class at SUNY New Paltz
+#### Web Server Programming Spring 2021
